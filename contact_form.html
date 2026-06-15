@@ -1,0 +1,144 @@
+<form class="ohc-form" method="post" name="Contact Form" aria-label="Contact Form">
+<style>
+  .ohc-form{--ohc-ink:#14110f;--ohc-mut:#8a857c;--ohc-fill:#f3f2ef;--ohc-line:#e2e0da;
+    font-family:'Helvetica Neue',Arial,sans-serif;background:#fff;color:var(--ohc-ink);
+    padding:clamp(22px,3vw,40px);box-shadow:0 30px 70px -40px rgba(20,17,15,.35);}
+  .ohc-form *{box-sizing:border-box;}
+  .ohc-head{margin:0 0 clamp(20px,2.6vw,30px);}
+  .ohc-head b{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+  .ohc-head p{margin:10px 0 0;font-size:14px;line-height:1.55;color:var(--ohc-mut);max-width:52ch;}
+  .ohc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.5vw,20px);}
+  .ohc-field{display:flex;flex-direction:column;gap:9px;min-width:0;}
+  .ohc-field.col-full{grid-column:1 / -1;}
+  .ohc-field.col-3{grid-column:span 2;}            /* placeholder; overridden in 3-col row */
+  .ohc-row3{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.5vw,20px);}
+  .ohc-row3 .ohc-field{grid-column:auto;}
+  .ohc-field > label{font-size:clamp(15px,1.15vw,18px);font-weight:400;letter-spacing:-.01em;color:var(--ohc-ink);}
+  .ohc-field input,.ohc-field select,.ohc-field textarea{
+    width:100%;background:var(--ohc-fill);border:1px solid var(--ohc-line);border-radius:0;
+    padding:15px 16px;font-family:inherit;font-size:15px;color:var(--ohc-ink);line-height:1.2;
+    outline:none;transition:border-color .25s ease,background .25s ease;-webkit-appearance:none;appearance:none;}
+  .ohc-field textarea{min-height:128px;resize:vertical;}
+  .ohc-field input::placeholder,.ohc-field textarea::placeholder{color:#a8a39a;}
+  .ohc-field input:focus,.ohc-field select:focus,.ohc-field textarea:focus{border-color:var(--ohc-ink);background:#fff;}
+  .ohc-field select{cursor:pointer;color:#a8a39a;}
+  .ohc-field select.has-val{color:var(--ohc-ink);}
+  .ohc-select{position:relative;}
+  .ohc-select::after{content:'';position:absolute;right:16px;top:50%;width:9px;height:9px;
+    border-right:1.5px solid var(--ohc-ink);border-bottom:1.5px solid var(--ohc-ink);
+    transform:translateY(-70%) rotate(45deg);pointer-events:none;}
+  .ohc-consent{grid-column:1 / -1;display:flex;align-items:flex-start;gap:11px;margin-top:2px;}
+  .ohc-consent input{width:17px;height:17px;margin-top:2px;flex:0 0 auto;accent-color:#14110f;}
+  .ohc-consent label{font-size:12.5px;line-height:1.5;color:var(--ohc-mut);}
+  .ohc-submit{grid-column:1 / -1;margin-top:clamp(6px,1vw,12px);width:100%;border:none;border-radius:0;cursor:pointer;
+    background:#141414;color:#fff;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;padding:19px 24px;transition:background .3s ease;}
+  .ohc-submit:hover{background:#2c2722;}
+  .ohc-note{grid-column:1 / -1;margin:6px 0 0;font-size:12px;color:var(--ohc-mut);text-align:center;display:none;}
+  .ohc-note.show{display:block;}
+  @media (max-width:600px){
+    .ohc-grid{grid-template-columns:1fr;}
+    .ohc-row3{grid-template-columns:1fr;}
+  }
+</style>
+
+  <input type="hidden" name="post_id" value="39"/>
+  <input type="hidden" name="form_id" value="d525802"/>
+  <input type="hidden" name="referer_title" value="Contact - Olivia Harper Homes" />
+  <input type="hidden" name="queried_id" value="39"/>
+
+  <div class="ohc-head">
+    <b>Start your project</b>
+    <p>Tell us about the home you have in mind. Share a few details below and our team will reach out to begin the conversation.</p>
+  </div>
+
+  <div class="ohc-grid">
+    <div class="ohc-field">
+      <label for="ohc-name">Name</label>
+      <input id="ohc-name" type="text" name="form_fields[name]" placeholder="Jane Smith" required="required" autocomplete="name">
+    </div>
+    <div class="ohc-field">
+      <label for="ohc-phone">Phone</label>
+      <input id="ohc-phone" type="tel" name="form_fields[phone]" placeholder="(123) 456-7890" autocomplete="tel">
+    </div>
+
+    <div class="ohc-field col-full">
+      <label for="ohc-email">Email</label>
+      <input id="ohc-email" type="email" name="form_fields[email]" placeholder="jane@email.com" required="required" autocomplete="email">
+    </div>
+
+    <div class="ohc-field col-full">
+      <label for="ohc-type">Project type</label>
+      <span class="ohc-select">
+        <select id="ohc-type" name="form_fields[project_type]" required="required">
+          <option value="" selected disabled hidden>Select…</option>
+          <option value="Custom Home Construction">Custom Home Construction</option>
+          <option value="Whole-Home Renovation">Whole-Home Renovation</option>
+          <option value="Design &amp; Material Curation">Design &amp; Material Curation</option>
+          <option value="Investment / Development">Investment / Development</option>
+          <option value="Other">Other</option>
+        </select>
+      </span>
+    </div>
+
+    <div class="ohc-row3">
+      <div class="ohc-field">
+        <label for="ohc-loc">Location</label>
+        <input id="ohc-loc" type="text" name="form_fields[location]" placeholder="City, State">
+      </div>
+      <div class="ohc-field">
+        <label for="ohc-budget">Budget</label>
+        <input id="ohc-budget" type="text" name="form_fields[budget]" placeholder="Estimated budget">
+      </div>
+      <div class="ohc-field">
+        <label for="ohc-size">Project Size (SQFT)</label>
+        <input id="ohc-size" type="text" name="form_fields[size]" placeholder="e.g., 8,500">
+      </div>
+    </div>
+
+    <div class="ohc-field">
+      <label for="ohc-start">Preferred Start Date</label>
+      <input id="ohc-start" type="date" name="form_fields[start_date]">
+    </div>
+    <div class="ohc-field">
+      <label for="ohc-finish">Desired Completion Date</label>
+      <input id="ohc-finish" type="date" name="form_fields[completion_date]">
+    </div>
+
+    <div class="ohc-field col-full">
+      <label for="ohc-msg">Message</label>
+      <textarea id="ohc-msg" name="form_fields[message]" placeholder="Write your message here"></textarea>
+    </div>
+
+    <div class="ohc-consent">
+      <input id="ohc-consent" type="checkbox" name="form_fields[consent]" required="required">
+      <label for="ohc-consent">I agree to the Privacy Policy and consent to being contacted regarding my inquiry.</label>
+    </div>
+
+    <button type="submit" class="ohc-submit">Request a consultation</button>
+    <p class="ohc-note" data-ohc-note>Thank you — we’ll be in touch shortly.</p>
+  </div>
+
+<script>
+(function(){
+  if (window.__ohcFormInit) return; window.__ohcFormInit = true;
+  function boot(){
+    var form = document.querySelector('.ohc-form');
+    if (!form) return;
+    // selects show muted placeholder until a value is chosen
+    form.querySelectorAll('.ohc-select select').forEach(function(sel){
+      function sync(){ sel.classList.toggle('has-val', !!sel.value); }
+      sel.addEventListener('change', sync); sync();
+    });
+    // date inputs read muted until filled (mirrors placeholder look)
+    form.querySelectorAll('input[type="date"]').forEach(function(d){
+      function sync(){ d.style.color = d.value ? 'var(--ohc-ink)' : '#a8a39a'; }
+      d.addEventListener('change', sync); sync();
+    });
+  }
+  if (document.readyState !== 'loading') boot();
+  else document.addEventListener('DOMContentLoaded', boot);
+  document.addEventListener('oh:preloaded', boot);
+})();
+</script>
+</form>

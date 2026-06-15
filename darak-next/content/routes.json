@@ -1,0 +1,107 @@
+[
+ {
+  "route": "",
+  "file": "index",
+  "title": "Darak Group - Luxury Homebuilding in Egypt"
+ },
+ {
+  "route": "about-us",
+  "file": "about-us",
+  "title": "About Us - Darak Group"
+ },
+ {
+  "route": "accessibility-statement",
+  "file": "accessibility-statement",
+  "title": "Accessibility Statement - Darak Group"
+ },
+ {
+  "route": "blog/building-by-hand",
+  "file": "blog__building-by-hand",
+  "title": "Why We Build by Hand - Journal - Darak Group"
+ },
+ {
+  "route": "blog/designing-for-light",
+  "file": "blog__designing-for-light",
+  "title": "Designing for the Egyptian Sun - Journal - Darak Group"
+ },
+ {
+  "route": "blog",
+  "file": "blog",
+  "title": "Journal - Darak Group"
+ },
+ {
+  "route": "blog/inside-a-waterfront-build",
+  "file": "blog__inside-a-waterfront-build",
+  "title": "Inside a North Coast Build: Almaza Bay - Journal - Darak Group"
+ },
+ {
+  "route": "blog/materials-that-endure",
+  "file": "blog__materials-that-endure",
+  "title": "Choosing Materials That Endure - Journal - Darak Group"
+ },
+ {
+  "route": "blog/what-turnkey-should-mean",
+  "file": "blog__what-turnkey-should-mean",
+  "title": "What \u201cTurnkey\u201d Should Really Mean - Journal - Darak Group"
+ },
+ {
+  "route": "careers",
+  "file": "careers",
+  "title": "Careers - Darak Group"
+ },
+ {
+  "route": "contact",
+  "file": "contact",
+  "title": "Contact - Darak Group"
+ },
+ {
+  "route": "cookie-policy",
+  "file": "cookie-policy",
+  "title": "Cookie Policy - Darak Group"
+ },
+ {
+  "route": "homes-projects",
+  "file": "homes-projects",
+  "title": "Projects - Darak Group"
+ },
+ {
+  "route": "privacy-policy",
+  "file": "privacy-policy",
+  "title": "Privacy Policy - Darak Group"
+ },
+ {
+  "route": "projects/1000-89-st-surfside",
+  "file": "projects__1000-89-st-surfside",
+  "title": "Capital Heights - Darak Group"
+ },
+ {
+  "route": "projects/1710-s-bayshore-drive",
+  "file": "projects__1710-s-bayshore-drive",
+  "title": "Zayed Dunes - Darak Group"
+ },
+ {
+  "route": "projects/1716-s-bayshore-drive",
+  "file": "projects__1716-s-bayshore-drive",
+  "title": "The Address New Cairo - Darak Group"
+ },
+ {
+  "route": "projects/hibiscus-island-estate",
+  "file": "projects__hibiscus-island-estate",
+  "title": "Marsa Sahel Residences - Darak Group"
+ },
+ {
+  "route": "projects/miami-beach-residence",
+  "file": "projects__miami-beach-residence",
+  "title": "Katameya Greens - Darak Group"
+ },
+ {
+  "route": "projects/normandy-shores",
+  "file": "projects__normandy-shores",
+  "title": "Almaza Bay Chalets - Darak Group"
+ },
+ {
+  "route": "terms-of-service",
+  "file": "terms-of-service",
+  "title": "Terms of Service - Darak Group"
+ }
+]

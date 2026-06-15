@@ -1,0 +1,24 @@
+# dependencies / build output
+darak-next/node_modules/
+darak-next/.next/
+darak-next/out/
+node_modules/
+
+# python
+__pycache__/
+*.pyc
+
+# dev screenshots
+shots/
+
+# archives / backups
+*.zip
+
+# reference site captures (not part of the Darak Group site)
+saveweb2zip-com-oliviaharperhomes-com/
+saveweb2zip-com-www-zeitmedia-vn/
+zeit-capture/
+
+# os / editor
+.DS_Store
+Thumbs.db

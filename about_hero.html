@@ -1,0 +1,119 @@
+<div class="oha">
+<style>
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:300;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-Light.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-Light.woff') format('woff');}
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:400;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-Regular.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-Regular.woff') format('woff');}
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:500;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-Medium.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-Medium.woff') format('woff');}
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:600;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-SemiBold.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-SemiBold.woff') format('woff');}
+
+  .oha{font-family:'Inter Display','Helvetica Neue',Arial,sans-serif;color:#fff;}
+  .oha *{box-sizing:border-box;}
+
+  /* ---- cinematic hero: full-screen, central axis, oversized cropped type ---- */
+  .oha-hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:#0b0b0b;isolation:isolate;}
+
+  /* Layer 1 — full-screen background image */
+  .oha-bg{position:absolute;inset:0;z-index:1;}
+  .oha-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06) brightness(.9);}
+  /* Layer 2 — dark overlay */
+  .oha-hero::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 30%,rgba(8,8,8,.30),rgba(8,8,8,.62) 70%,rgba(8,8,8,.82) 100%);}
+
+  /* Layer 3 — centered anchoring subject */
+  .oha-figure{position:absolute;left:50%;bottom:0;transform:translateX(-50%);z-index:3;
+    height:86%;display:flex;align-items:flex-end;
+    -webkit-mask-image:linear-gradient(180deg,#000 78%,transparent 100%);
+    mask-image:linear-gradient(180deg,#000 78%,transparent 100%);}
+  .oha-figure img{height:100%;width:auto;max-width:46vw;object-fit:cover;object-position:50% 0;
+    filter:grayscale(1) contrast(1.08);}
+
+  /* Layer 4 — supporting content, flanking the subject at mid-height */
+  .oha-side{position:absolute;top:48%;transform:translateY(-50%);z-index:4;}
+  .oha-side .ln{display:block;overflow:hidden;}
+  .oha-side .ln > span{display:block;}
+  .oha-left{left:clamp(20px,4vw,72px);max-width:248px;}
+  .oha-left .eye{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+    color:rgba(255,255,255,.62);margin:0 0 16px;}
+  .oha-left p{margin:0;font-size:clamp(13px,1vw,15px);line-height:1.55;color:rgba(255,255,255,.86);font-weight:400;}
+  .oha-right{right:clamp(20px,4vw,72px);text-align:right;max-width:200px;}
+  .oha-right .lbl{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.62);}
+  .oha-right .val{display:block;margin-top:9px;font-size:clamp(15px,1.3vw,19px);font-weight:500;letter-spacing:.01em;color:#fff;}
+
+  /* Layer 5 — oversized typography, cropped by the viewport edges */
+  .oha-mega{position:absolute;left:50%;bottom:clamp(6px,3.2vh,46px);transform:translateX(-50%);z-index:5;
+    margin:0;white-space:nowrap;font-weight:600;letter-spacing:-.045em;line-height:.78;color:#fff;
+    font-size:clamp(86px,21.5vw,360px);pointer-events:none;
+    text-shadow:0 2px 60px rgba(0,0,0,.35);}
+
+  /* entrance */
+  .oha-bg img,.oha-figure{opacity:0;}
+  .oha-bg img{transform:scale(1.06);transition:opacity 1.4s ease,transform 2.4s cubic-bezier(.16,1,.3,1);}
+  .oha-figure{transform:translateX(-50%) translateY(26px);transition:opacity 1.2s ease .15s,transform 1.4s cubic-bezier(.16,1,.3,1) .15s;}
+  .oha-side .ln > span,.oha-mega{transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
+  .oha-mega{will-change:transform;}
+  .oha-side .ln:nth-child(2) > span{transition-delay:.06s;}
+  .oha-hero.is-in .oha-bg img{opacity:1;transform:scale(1);}
+  .oha-hero.is-in .oha-figure{opacity:1;transform:translateX(-50%) translateY(0);}
+  .oha-hero.is-in .oha-side .ln > span{transform:translateY(0);}
+  .oha-hero.is-in .oha-mega{transform:translateX(-50%) translateY(0);transition-delay:.2s;}
+  .oha-mega{transform:translateX(-50%) translateY(112%);}
+
+  @media (max-width:900px){
+    .oha-figure{height:64%;}
+    .oha-figure img{max-width:78vw;}
+    .oha-left{max-width:42vw;}
+    .oha-right{max-width:34vw;}
+    .oha-mega{font-size:clamp(64px,26vw,200px);}
+  }
+  @media (max-width:560px){
+    .oha-side{top:auto;transform:none;}
+    .oha-left{top:96px;left:20px;max-width:60vw;}
+    .oha-right{top:96px;right:20px;max-width:34vw;}
+    .oha-left p{font-size:12px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .oha-bg img,.oha-figure,.oha-side .ln > span{opacity:1!important;transform:none!important;transition:none!important;}
+    .oha-figure{transform:translateX(-50%)!important;}
+    .oha-mega{transform:translateX(-50%)!important;transition:none!important;}
+  }
+</style>
+
+<section class="oha-hero" id="ohaHero">
+  <!-- Layer 1: background -->
+  <div class="oha-bg"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate-Olvia-Harper1-scaled.jpg" alt="" loading="eager"></div>
+
+  <!-- Layer 3: centered subject -->
+  <div class="oha-figure"><img src="/wp-content/uploads/2026/02/About-Team-Olivia-Harper-FL-1-683x1024.jpg" alt="The Olivia Harper Homes team"></div>
+
+  <!-- Layer 4: supporting content -->
+  <div class="oha-side oha-left">
+    <p class="eye"><span class="ln"><span>Who we are</span></span></p>
+    <p><span class="ln"><span>A South Florida homebuilder crafting a limited</span></span>
+       <span class="ln"><span>number of exceptional residences each year.</span></span></p>
+  </div>
+  <div class="oha-side oha-right">
+    <span class="lbl">Established</span>
+    <span class="val">2016 — Miami, FL</span>
+  </div>
+
+  <!-- Layer 5: oversized cropped typography -->
+  <h1 class="oha-mega">OLIVIA HARPER</h1>
+</section>
+
+<script>
+(function(){
+  if (window.__ohaHeroInit) return; window.__ohaHeroInit = true;
+  function boot(){
+    var hero = document.getElementById('ohaHero');
+    if (!hero) return;
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ hero.classList.add('is-in'); }); });
+  }
+  if (document.readyState !== 'loading') boot();
+  else document.addEventListener('DOMContentLoaded', boot);
+  document.addEventListener('oh:preloaded', boot);
+})();
+</script>
+</div>

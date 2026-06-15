@@ -1,0 +1,547 @@
+<!-- Inline menu links live OUTSIDE the fixed bar: they sit in the page (not
+     pinned) and scroll away with the content on first scroll. -->
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		
+		
+<main id="content" class="site-main post-34 page type-page status-publish hentry">
+	<div class="page-content">
+<div class="oha">
+<style>
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:300;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-Light.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-Light.woff') format('woff');}
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:400;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-Regular.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-Regular.woff') format('woff');}
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:500;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-Medium.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-Medium.woff') format('woff');}
+  @font-face{font-family:'Inter Display';font-style:normal;font-weight:600;font-display:swap;
+    src:url('/wp-content/uploads/fonts/InterDisplay-SemiBold.woff2') format('woff2'),url('/wp-content/uploads/fonts/InterDisplay-SemiBold.woff') format('woff');}
+
+  .oha{font-family:'Inter Display','Helvetica Neue',Arial,sans-serif;color:#ffffff;}
+  .oha *{box-sizing:border-box;}
+
+  /* ---- cinematic hero: full-screen, central axis, oversized cropped type ---- */
+  .oha-hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:#0b0b0b;isolation:isolate;}
+
+  /* Layer 1 — full-screen background image */
+  .oha-bg{position:absolute;inset:0;z-index:1;}
+  .oha-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06) brightness(.9);}
+  /* Layer 2 — dark overlay */
+  .oha-hero::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 30%,rgba(8, 8, 8, .30),rgba(8, 8, 8, .62) 70%,rgba(8, 8, 8, .82) 100%);}
+
+  /* Layer 4 — supporting content, flanking at mid-height */
+  .oha-side{position:absolute;top:48%;transform:translateY(-50%);z-index:4;}
+  .oha-side .ln{display:block;overflow:hidden;}
+  .oha-side .ln > span{display:block;}
+  .oha-left{left:clamp(20px,4vw,72px);max-width:248px;}
+  .oha-left .eye{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+    color:rgba(255, 255, 255, .62);margin:0 0 16px;}
+  .oha-left p{margin:0;font-size:clamp(13px,1vw,15px);line-height:1.55;color:rgba(255, 255, 255, .86);font-weight:400;}
+  .oha-right{right:clamp(20px,4vw,72px);text-align:right;max-width:200px;}
+  .oha-right .lbl{font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(255, 255, 255, .62);}
+  .oha-right .val{display:block;margin-top:9px;font-size:clamp(15px,1.3vw,19px);font-weight:500;letter-spacing:.01em;color:#ffffff;}
+
+  /* Layer 5 — infinite marquee of the brand name (smaller than the old cropped type) */
+  .oha-marquee{position:absolute;left:0;right:0;bottom:clamp(10px,5vh,60px);z-index:5;
+    overflow:hidden;pointer-events:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
+  .oha-marquee-track{display:flex;width:max-content;will-change:transform;
+    animation:ohaMarquee 34s linear infinite;}
+  .oha-mq-group{display:flex;flex:0 0 auto;}
+  .oha-mq-group span{display:block;white-space:nowrap;font-weight:600;letter-spacing:-.02em;
+    line-height:1;color:#ffffff;font-size:clamp(46px,9vw,132px);padding-right:.08em;
+    text-shadow:0 2px 50px rgba(0,0,0,.3);}
+  .oha-mq-group span i{font-style:normal;color:rgba(255,255,255,.45);padding:0 .3em;}
+  @keyframes ohaMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* entrance */
+  .oha-bg img{opacity:0;transform:scale(1.06);transition:opacity 1.4s ease,transform 2.4s cubic-bezier(.16,1,.3,1);}
+  .oha-side .ln > span{transform:translateY(112%);transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
+  .oha-side .ln:nth-child(2) > span{transition-delay:.06s;}
+  .oha-marquee{opacity:0;transition:opacity 1.2s ease .25s;}
+  .oha-hero.is-in .oha-bg img{opacity:1;transform:scale(1);}
+  .oha-hero.is-in .oha-side .ln > span{transform:translateY(0);}
+  .oha-hero.is-in .oha-marquee{opacity:1;}
+
+  @media (max-width:900px){
+    .oha-left{max-width:42vw;}
+    .oha-right{max-width:34vw;}
+    .oha-mq-group span{font-size:clamp(38px,12vw,92px);}
+  }
+  @media (max-width:560px){
+    .oha-side{top:auto;transform:none;}
+    .oha-left{top:96px;left:20px;max-width:60vw;}
+    .oha-right{top:96px;right:20px;max-width:34vw;}
+    .oha-left p{font-size:12px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .oha-bg img,.oha-side .ln > span,.oha-marquee{opacity:1!important;transform:none!important;transition:none!important;}
+    .oha-marquee-track{animation:none;}
+  }
+</style>
+
+<section class="oha-hero" id="ohaHero">
+  <!-- Layer 1: background -->
+  <div class="oha-bg"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate-Olvia-Harper1-scaled.jpg" alt="" loading="eager"></div>
+
+  <!-- Layer 4: supporting content -->
+  <div class="oha-side oha-left">
+    <p class="eye"><span class="ln"><span>Who we are</span></span></p>
+    <p><span class="ln"><span>A Egypt homebuilder crafting a limited</span></span>
+       <span class="ln"><span>number of exceptional residences each year.</span></span></p>
+  </div>
+  <div class="oha-side oha-right">
+    <span class="lbl">Established</span>
+    <span class="val">2016 — Cairo, Egypt</span>
+  </div>
+
+  <!-- Layer 5: infinite brand marquee -->
+  <h1 class="oha-marquee" aria-label="Darak Group">
+    <div class="oha-marquee-track">
+      <div class="oha-mq-group"><span>OLIVIA HARPER<i>—</i></span><span>OLIVIA HARPER<i>—</i></span><span>OLIVIA HARPER<i>—</i></span><span>OLIVIA HARPER<i>—</i></span></div>
+      <div class="oha-mq-group" aria-hidden="true"><span>OLIVIA HARPER<i>—</i></span><span>OLIVIA HARPER<i>—</i></span><span>OLIVIA HARPER<i>—</i></span><span>OLIVIA HARPER<i>—</i></span></div>
+    </div>
+  </h1>
+</section>
+
+</div>
+
+<section class="ohst">
+<style>
+  .ohst{position:relative;background:#ffffff;color:#111111;z-index:3;overflow:hidden;
+    font-family:'Helvetica Neue',Arial,sans-serif;padding:clamp(96px,16vh,200px) 0 clamp(96px,16vh,210px);}
+  .ohst *{box-sizing:border-box;}
+  .ohst-wrap{width:100%;max-width:1480px;margin:0 auto;padding:0 clamp(22px,5vw,80px);}
+
+  /* heading — normal flowing lines */
+  .ohst-head{margin:0;font-weight:700;text-transform:uppercase;line-height:1.02;letter-spacing:-.015em;
+    font-size:clamp(30px,6.6vw,116px);}
+  .ohst-line{display:block;}
+  .ohst-line + .ohst-line{margin-top:clamp(2px,.4vw,8px);}
+  .ohst-w{display:inline;}
+  .ohst-w.q{color:rgba(17,17,17,.42);}
+
+  /* asymmetric image + text grid with parallax */
+  .ohst-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,40px);
+    margin-top:clamp(54px,9vh,120px);align-items:start;}
+  .ohst-fig{position:relative;overflow:hidden;will-change:transform;}
+  .ohst-fig img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);}
+  .ohst-i1{grid-column:2/5;grid-row:1;aspect-ratio:3/4;}
+  .ohst-i2{grid-column:10/13;grid-row:1;aspect-ratio:1/1;align-self:start;margin-top:clamp(40px,7vh,120px);}
+  .ohst-i3{grid-column:4/10;grid-row:2;aspect-ratio:16/9;margin-top:clamp(24px,4vh,60px);}
+  .ohst-text{grid-column:6/10;grid-row:1;}
+  .ohst-text p{margin:0;font-size:clamp(15px,1.25vw,19px);line-height:1.6;color:rgba(17,17,17,.62);}
+  .ohst-text p + p{margin-top:1.1em;}
+
+  .ohst-reveal{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1.1s cubic-bezier(.16,1,.3,1);}
+  .ohst-reveal.is-in{opacity:1;transform:none;}
+
+  @media (max-width:820px){
+    .ohst{padding:clamp(72px,12vh,130px) 0;}
+    .ohst-head{font-size:clamp(30px,9.6vw,60px);}
+    .ohst-grid{grid-template-columns:1fr;gap:clamp(16px,5vw,26px);margin-top:clamp(40px,8vh,70px);}
+    .ohst-i1,.ohst-i2,.ohst-i3,.ohst-text{grid-column:1;grid-row:auto;margin-top:0;}
+    .ohst-i1{aspect-ratio:4/3;max-width:74%;}
+    .ohst-i2{aspect-ratio:4/3;max-width:74%;margin-left:auto;}
+    .ohst-i3{aspect-ratio:16/10;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ohst-reveal{opacity:1!important;transform:none!important;}
+  }
+</style>
+
+  <div class="ohst-wrap">
+    <h2 class="ohst-head" aria-label="A home — a lifetime story, or a journey of craft">
+      <span class="ohst-line">
+        <span class="ohst-w">A Home</span>
+        <span class="ohst-w q">—</span>
+        <span class="ohst-w">A Lifetime</span>
+        <span class="ohst-w">Story</span>
+      </span>
+      <span class="ohst-line">
+        <span class="ohst-w q">Or</span>
+        <span class="ohst-w">A Journey</span>
+        <span class="ohst-w q">Of</span>
+        <span class="ohst-w">Craft</span>
+      </span>
+    </h2>
+
+    <div class="ohst-grid">
+      <figure class="ohst-fig ohst-i1" data-ohst-parallax data-start="-40" data-end="14">
+        <img src="/wp-content/uploads/2026/02/About-Team-Olivia-Harper-FL-1-683x1024.jpg" alt="" loading="lazy">
+      </figure>
+
+      <div class="ohst-text ohst-reveal">
+        <p>A home is more than the day it is delivered — it is measured in the decades it endures, the light it keeps, and the lives it shelters.</p>
+        <p>At Darak Group we build by hand and to a single standard, treating craft as the foundation of every residence we raise.</p>
+        <p>This is our story: a commitment to homes worth keeping — and worth passing on.</p>
+      </div>
+
+      <figure class="ohst-fig ohst-i2" data-ohst-parallax data-start="-22" data-end="58">
+        <img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios030-scaled.jpg" alt="" loading="lazy">
+      </figure>
+
+      <figure class="ohst-fig ohst-i3" data-ohst-parallax data-start="30" data-end="-12">
+        <img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_9.jpg" alt="" loading="lazy">
+      </figure>
+    </div>
+  </div>
+
+</section>
+
+		<section class="ohf">
+<style>
+  .ohf{background:#ffffff;color:#111111;font-family:'Helvetica Neue',Arial,sans-serif;position:relative;z-index:3;overflow:hidden;}
+  .ohf *{box-sizing:border-box;}
+  .ohf-wrap{width:100%;max-width:1480px;margin:0 auto;padding:0 clamp(22px,5vw,80px);}
+
+  /* image stage: holds the label, the marquee, and the description (all over the image) */
+  .ohf-stage{position:relative;min-height:clamp(660px,112vh,1180px);overflow:hidden;background:#e8e8e6;}
+  .ohf-img{position:absolute;inset:0;width:100%;height:114%;object-fit:cover;object-position:center;
+    filter:grayscale(1) contrast(.95) brightness(1.14);will-change:transform;}
+  .ohf-stage::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(255,255,255,.66),rgba(255,255,255,.54) 45%,rgba(255,255,255,.72));}
+
+  /* (01) left / (Our Philosophy) right — same centered width as the description, on the image */
+  .ohf-label{position:absolute;top:clamp(96px,15vh,170px);left:0;right:0;z-index:3;}
+  .ohf-eyebrow{width:min(56ch,86vw);margin:0 auto;display:flex;justify-content:space-between;
+    align-items:baseline;gap:18px;font-size:clamp(15px,1.3vw,20px);line-height:1.5;color:#111111;}
+
+  /* marquee — white, centered, direction follows scroll */
+  .ohf-marquee{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);z-index:3;
+    overflow:hidden;pointer-events:none;}
+  .ohf-marquee-track{display:flex;width:max-content;will-change:transform;}
+  .ohf-mq-col{display:flex;flex:0 0 auto;align-items:center;}
+  .ohf-mq-col p{margin:0;white-space:nowrap;font-weight:600;letter-spacing:-.02em;line-height:1;color:#111111;
+    font-size:clamp(56px,12.5vw,210px);padding:0 .1em;}
+  .ohf-mq-col p.sep{opacity:.5;padding:0 .14em;}
+
+  /* description — same centered width as the eyebrow, centered text, on the image below the marquee */
+  .ohf-statement{position:absolute;bottom:clamp(90px,15vh,180px);left:0;right:0;z-index:3;}
+  .ohf-statement p{width:min(56ch,86vw);margin:0 auto;font-weight:400;font-size:clamp(18px,1.7vw,27px);
+    line-height:1.45;color:rgba(17,17,17,.92);text-align:center;}
+
+  /* floating cards — no background, distributed across the screen, overlapping the image above, parallax */
+  .ohf-mv{position:relative;z-index:4;margin-top:clamp(-260px,-24vh,-140px);
+    padding:clamp(36px,7vh,110px) 0 clamp(80px,16vh,220px);}
+  .ohf-mv-inner{position:relative;max-width:1480px;margin:0 auto;padding:0 clamp(22px,5vw,80px);
+    min-height:clamp(380px,58vh,640px);}
+  .ohf-card{max-width:440px;will-change:transform;}
+  .ohf-num{font-size:clamp(15px,1.3vw,20px);color:rgba(17,17,17,.6);margin-bottom:14px;}
+  .ohf-mv-h{margin:0 0 18px;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1;
+    letter-spacing:-.01em;font-size:clamp(38px,5vw,84px);}
+  .ohf-mv-t{margin:0;font-size:clamp(16px,1.4vw,21px);line-height:1.5;color:rgba(17,17,17,.62);}
+  .ohf-card--vision{margin-right:auto;}                                   /* upper-left */
+  .ohf-card--mission{margin-left:auto;margin-top:clamp(150px,26vh,380px);} /* lower-right */
+
+  .ohf-reveal{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1.1s cubic-bezier(.16,1,.3,1);}
+  .ohf-reveal.is-in{opacity:1;transform:none;}
+
+  @media (max-width:820px){
+    .ohf-stage{min-height:clamp(560px,96vh,900px);}
+    .ohf-mq-col p{font-size:clamp(44px,17vw,120px);}
+    .ohf-statement{bottom:clamp(64px,11vh,140px);}
+    .ohf-statement p{font-size:clamp(15px,4.2vw,21px);}
+    .ohf-mv{padding-top:clamp(120px,22vh,200px);}
+    .ohf-card{max-width:none;}
+    .ohf-card--mission{margin-top:clamp(56px,10vh,110px);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ohf-reveal{opacity:1!important;transform:none!important;}
+  }
+</style>
+
+  <div class="ohf-stage">
+    <img class="ohf-img" src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios028-scaled.jpg" alt="" loading="lazy">
+
+    <div class="ohf-label"><div class="ohf-eyebrow ohf-reveal">
+      <span>(01)</span><span>(Our Philosophy)</span>
+    </div></div>
+
+    <div class="ohf-marquee" aria-hidden="true">
+      <div class="ohf-marquee-track" data-ohf-marquee>
+        <div class="ohf-mq-col"><p>Built To Endure</p><p class="sep">/</p><p>Built To Endure</p><p class="sep">/</p></div>
+        <div class="ohf-mq-col"><p>Built To Endure</p><p class="sep">/</p><p>Built To Endure</p><p class="sep">/</p></div>
+        <div class="ohf-mq-col"><p>Built To Endure</p><p class="sep">/</p><p>Built To Endure</p><p class="sep">/</p></div>
+        <div class="ohf-mq-col"><p>Built To Endure</p><p class="sep">/</p><p>Built To Endure</p><p class="sep">/</p></div>
+      </div>
+    </div>
+
+    <div class="ohf-statement"><div class="ohf-reveal">
+      <p>We design and build a limited number of exceptional residences each year, treating craft as the foundation of every home. From structural glass to hand-finished stone, each element is selected, detailed, and built by our own team — so a home’s worth is measured not by the day it is delivered, but by how it endures.</p>
+    </div></div>
+  </div>
+
+  <div class="ohf-mv">
+    <div class="ohf-mv-inner">
+      <div class="ohf-card ohf-card--vision" data-ohf-parallax data-start="210" data-end="-280">
+        <div class="ohf-num">(02)</div>
+        <h2 class="ohf-mv-h">Vision</h2>
+        <p class="ohf-mv-t">To be Egypt’s most trusted builder of enduring, architect-led homes — measured not by volume, but by the lasting quality of every residence we deliver.</p>
+      </div>
+      <div class="ohf-card ohf-card--mission" data-ohf-parallax data-start="100" data-end="-380">
+        <div class="ohf-num">(03)</div>
+        <h2 class="ohf-mv-h">Mission</h2>
+        <p class="ohf-mv-t">We create distinction in every home we build, turning uncompromising craft into the standard our clients return to, trust, and recommend.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+	<section class="ohb" data-ohb>
+<style>
+  .ohb{position:relative;background:#ffffff;color:#111111;font-family:'Helvetica Neue',Arial,sans-serif;z-index:3;}
+  .ohb *{box-sizing:border-box;}
+  .ohb-wrap{width:100%;max-width:1480px;margin:0 auto;padding:0 clamp(22px,5vw,80px);}
+
+  /* the title block is sticky in the background */
+  .ohb-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;z-index:1;overflow:hidden;}
+  .ohb-eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.02em;color:#111111;}
+  .ohb-marker{width:9px;height:9px;border-radius:50%;background:#111111;flex:0 0 auto;}
+  .ohb-pretext{margin:clamp(18px,3vh,34px) 0 clamp(10px,1.6vh,18px);color:rgba(17,17,17,.72);
+    font-size:clamp(14px,1.1vw,17px);}
+  .ohb-heading{margin:0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:.94;
+    letter-spacing:-.02em;text-transform:uppercase;font-size:clamp(44px,9vw,150px);}
+  .ohb-heading .ln{display:block;overflow:hidden;}
+  .ohb-heading .ln>span{display:block;transform:translateY(112%);transition:transform 1.05s cubic-bezier(.16,1,.3,1);}
+  .ohb-heading .ln-row{display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:24px;}
+  .ohb-heading .ln-row .ln:nth-child(2)>span{transition-delay:.08s;}
+  .ohb-heading > .ln:last-child>span{transition-delay:.16s;}
+  .ohb.is-in .ohb-heading .ln>span{transform:translateY(0);}
+  .ohb-para{margin:clamp(22px,4vh,42px) 0 0;max-width:44ch;color:rgba(17,17,17,.6);
+    font-size:clamp(15px,1.2vw,19px);line-height:1.5;}
+
+  /* leader cards float over the sticky title, alternating sides, with parallax */
+  .ohb-cards{position:relative;z-index:2;margin-top:-100vh;padding-top:96vh;padding-bottom:clamp(40px,8vh,120px);}
+  a.ohb-card{display:block;text-decoration:none;color:inherit;width:min(384px,86vw);
+    background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border:1px solid rgba(0,0,0,.14);overflow:hidden;will-change:transform;transition:border-color .4s ease;}
+  a.ohb-card:hover{border-color:rgba(0,0,0,.36);}
+  .ohb-card + .ohb-card{margin-top:clamp(150px,26vh,360px);}
+  .ohb-card:nth-child(odd){margin-right:auto;}     /* left */
+  .ohb-card:nth-child(even){margin-left:auto;}      /* right */
+  .ohb-card-media{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;}
+  .ohb-card-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);
+    transition:transform 1.2s cubic-bezier(.16,1,.3,1);}
+  a.ohb-card:hover .ohb-card-media img{transform:scale(1.06);}
+  .ohb-card-body{padding:clamp(22px,2vw,34px);}
+  .ohb-card-idx{font-size:12px;letter-spacing:.18em;color:rgba(17,17,17,.5);}
+  .ohb-name{margin:14px 0 8px;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1;
+    font-size:clamp(26px,2.4vw,40px);letter-spacing:-.01em;display:flex;align-items:center;gap:10px;}
+  .ohb-name .ar{font-size:.5em;opacity:0;transform:translateX(-6px);transition:opacity .4s ease,transform .4s ease;}
+  a.ohb-card:hover .ohb-name .ar{opacity:1;transform:none;}
+  .ohb-role{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(17,17,17,.62);}
+  .ohb-bio{margin:16px 0 0;font-size:14.5px;line-height:1.56;color:rgba(17,17,17,.6);}
+
+  @media (max-width:820px){
+    .ohb-sticky{height:80vh;}
+    .ohb-cards{padding-top:78vh;}
+    .ohb-card{width:88vw;}
+    .ohb-card + .ohb-card{margin-top:clamp(90px,16vh,180px);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ohb-heading .ln>span{transform:none!important;transition:none!important;}
+  }
+</style>
+
+  <div class="ohb-sticky">
+    <div class="ohb-wrap">
+      <div class="ohb-eyebrow"><span class="ohb-marker"></span><span>Our Leaders</span></div>
+      <div class="ohb-pretext">(The people who guide Darak Group)</div>
+      <h2 class="ohb-heading">
+        <span class="ln-row">
+          <span class="ln"><span>Board</span></span>
+          <span class="ln"><span>Of</span></span>
+        </span>
+        <span class="ln"><span>Directors</span></span>
+      </h2>
+      <p class="ohb-para">Guided by a clear standard and hands-on leadership, Darak Group builds enduring residences across Egypt — and stands behind every detail.</p>
+    </div>
+  </div>
+
+  <div class="ohb-cards"><div class="ohb-wrap">
+    <a class="ohb-card" href="/contact/" data-ohb-parallax data-start="180" data-end="-220">
+      <div class="ohb-card-media"><img src="/wp-content/uploads/2026/02/About-Team-Olivia-Harper-FL-1-683x1024.jpg" alt="Karim Darak" loading="lazy"></div>
+      <div class="ohb-card-body">
+        <div class="ohb-card-idx">01</div>
+        <h3 class="ohb-name">Karim Darak <span class="ar" aria-hidden="true">↗</span></h3>
+        <div class="ohb-role">Co-Founder &amp; Principal</div>
+        <p class="ohb-bio">Leads construction and delivery, holding every build to one uncompromising standard from groundbreaking to final walkthrough.</p>
+      </div>
+    </a>
+    <a class="ohb-card" href="/contact/" data-ohb-parallax data-start="90" data-end="-320">
+      <div class="ohb-card-media"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios029-scaled.jpg" alt="Omar El-Sharif" loading="lazy"></div>
+      <div class="ohb-card-body">
+        <div class="ohb-card-idx">02</div>
+        <h3 class="ohb-name">Omar El-Sharif <span class="ar" aria-hidden="true">↗</span></h3>
+        <div class="ohb-role">Co-Founder &amp; Principal</div>
+        <p class="ohb-bio">Drives design direction and client partnership, shaping each residence from the first sketch to the last surface.</p>
+      </div>
+    </a>
+    <a class="ohb-card" href="/contact/" data-ohb-parallax data-start="160" data-end="-260">
+      <div class="ohb-card-media"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios030-scaled.jpg" alt="Head of Construction" loading="lazy"></div>
+      <div class="ohb-card-body">
+        <div class="ohb-card-idx">03</div>
+        <h3 class="ohb-name">Head of Construction <span class="ar" aria-hidden="true">↗</span></h3>
+        <div class="ohb-role">Field Leadership</div>
+        <p class="ohb-bio">Runs the build in the field — trades, sequencing, and quality — so the work is exacting on site, not just on paper.</p>
+      </div>
+    </a>
+    <a class="ohb-card" href="/contact/" data-ohb-parallax data-start="70" data-end="-360">
+      <div class="ohb-card-media"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios031-scaled.jpg" alt="Design Director" loading="lazy"></div>
+      <div class="ohb-card-body">
+        <div class="ohb-card-idx">04</div>
+        <h3 class="ohb-name">Design Director <span class="ar" aria-hidden="true">↗</span></h3>
+        <div class="ohb-role">Materials &amp; Detailing</div>
+        <p class="ohb-bio">Curates materials and details every junction, ensuring each home reads as considered in ten years as on the first day.</p>
+      </div>
+    </a>
+  </div></div>
+
+</section>
+	<section class="ohs2">
+<style>
+  .ohs2{position:relative;background:#ffffff;color:#111111;font-family:'Helvetica Neue',Arial,sans-serif;z-index:3;}
+  .ohs2 *{box-sizing:border-box;}
+  .ohs2-wrap{width:100%;max-width:1480px;margin:0 auto;padding:0 clamp(22px,5vw,80px);}
+  /* stacking cards: each sticks at the top and the next slides up over it */
+  .ohs2-card{position:sticky;top:0;min-height:100vh;display:flex;align-items:center;
+    background:#ffffff;border-top:1px solid rgba(0,0,0,.1);}
+  .ohs2-inner{width:100%;will-change:transform,opacity;}
+  .ohs2-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,90px);align-items:center;}
+  .ohs2-idx{color:rgba(17,17,17,.6);font-size:clamp(14px,1.1vw,18px);margin-bottom:14px;}
+  .ohs2-title{margin:0 0 clamp(24px,3vw,42px);font-family:'Gallient',Georgia,serif;font-weight:400;
+    font-size:clamp(40px,5.6vw,94px);line-height:1;letter-spacing:-.02em;}
+  .ohs2-img{width:100%;aspect-ratio:16/10;overflow:hidden;}
+  .ohs2-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);}
+  .ohs2-text{font-size:clamp(16px,1.4vw,21px);line-height:1.56;color:rgba(17,17,17,.7);max-width:48ch;}
+  @media (max-width:820px){
+    .ohs2-grid{grid-template-columns:1fr;gap:22px;}
+    .ohs2-card{min-height:auto;padding:clamp(80px,14vh,140px) 0;}
+  }
+</style>
+
+  <div class="ohs2-card" data-ohs2-card>
+    <div class="ohs2-inner"><div class="ohs2-wrap"><div class="ohs2-grid">
+      <div>
+        <div class="ohs2-idx">(01)</div>
+        <h2 class="ohs2-title">Darak Construction</h2>
+        <div class="ohs2-img"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios028-scaled.jpg" alt="" loading="lazy"></div>
+      </div>
+      <div class="ohs2-text"><p>Our ground-up construction arm builds custom residences end to end — structure, envelope, and finish delivered by a single in-house team to one exacting standard. From the first excavation to the final walkthrough, the build is never handed off.</p></div>
+    </div></div></div>
+  </div>
+
+  <div class="ohs2-card" data-ohs2-card>
+    <div class="ohs2-inner"><div class="ohs2-wrap"><div class="ohs2-grid">
+      <div>
+        <div class="ohs2-idx">(02)</div>
+        <h2 class="ohs2-title">Darak Design Studio</h2>
+        <div class="ohs2-img"><img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_9.jpg" alt="" loading="lazy"></div>
+      </div>
+      <div class="ohs2-text"><p>Interior architecture, material curation, and detailing under one roof. The studio resolves every junction and surface alongside the build, so design intent survives all the way to the last fixture — nothing is value-engineered away.</p></div>
+    </div></div></div>
+  </div>
+
+  <div class="ohs2-card" data-ohs2-card>
+    <div class="ohs2-inner"><div class="ohs2-wrap"><div class="ohs2-grid">
+      <div>
+        <div class="ohs2-idx">(03)</div>
+        <h2 class="ohs2-title">Darak Development</h2>
+        <div class="ohs2-img"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate-Olvia-Harper1-scaled.jpg" alt="" loading="lazy"></div>
+      </div>
+      <div class="ohs2-text"><p>We acquire and develop distinctive sites across Egypt’s most sought-after waterfront and estate neighborhoods — selecting for light, position, and long-term value, then building residences designed to endure on them.</p></div>
+    </div></div></div>
+  </div>
+
+</section>
+<section class="ohc2">
+<style>
+  .ohc2{position:relative;background:#ffffff;color:#111111;overflow:hidden;z-index:3;
+    font-family:'Helvetica Neue',Arial,sans-serif;padding:clamp(80px,14vh,180px) 0 clamp(110px,18vh,240px);}
+  .ohc2 *{box-sizing:border-box;}
+  .ohc2-wrap{width:100%;max-width:1480px;margin:0 auto;padding:0 clamp(22px,5vw,80px);}
+  .ohc2-eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.02em;color:#111111;}
+  .ohc2-marker{width:9px;height:9px;border-radius:50%;background:#111111;flex:0 0 auto;}
+  .ohc2-heading{margin:clamp(26px,4vh,46px) 0 0;text-align:center;font-family:'Gallient',Georgia,serif;
+    font-weight:400;line-height:1;letter-spacing:-.02em;font-size:clamp(54px,11vw,184px);}
+  .ohc2-quote{margin:clamp(22px,3vh,34px) 0 0;font-size:clamp(15px,1.3vw,20px);color:rgba(17,17,17,.8);}
+
+  .ohc2-gallery{margin-top:clamp(50px,8vh,110px);transform:rotate(-4deg) scale(1.1);transform-origin:center;}
+  .ohc2-row{display:flex;width:max-content;gap:clamp(10px,1.2vw,20px);will-change:transform;}
+  /* rows drift on their own and reverse with scroll direction (JS-driven via translateX) */
+  .ohc2-row-1{position:relative;z-index:1;}
+  .ohc2-row-2{position:relative;z-index:2;rotate:6deg;translate:0 126%;}
+  .ohc2-row + .ohc2-row{margin-top:clamp(-64px,-6vh,-34px);}   /* rows overlap slightly */
+  .ohc2-cell{flex:0 0 auto;width:clamp(320px,34vw,580px);aspect-ratio:2/1;overflow:hidden;}
+  .ohc2-cell img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);}
+
+  @media (max-width:820px){
+    .ohc2{padding:clamp(64px,11vh,110px) 0 clamp(70px,12vh,120px);}
+    .ohc2-gallery{margin-top:clamp(40px,7vh,72px);transform:rotate(-4deg) scale(1.05);}
+    .ohc2-cell{width:clamp(230px,62vw,320px);}
+    .ohc2-row-2{rotate:4deg;translate:0 18%;}   /* compact overlap on phones (no big downward shove) */
+    .ohc2-row + .ohc2-row{margin-top:clamp(-34px,-4vh,-18px);}
+  }
+</style>
+
+  <div class="ohc2-wrap">
+    <div class="ohc2-eyebrow"><span class="ohc2-marker"></span><span>Behind The Scene</span></div>
+    <h2 class="ohc2-heading">Our — Culture</h2>
+    <p class="ohc2-quote">“Craft comes first — built by our own hands.”</p>
+  </div>
+
+  <div class="ohc2-gallery" aria-hidden="true">
+    <div class="ohc2-row ohc2-row-1">
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios026-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios027-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios028-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_2.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/Normandy-Shores9.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/About-Team-Olivia-Harper-FL-1.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios026-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios027-1-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios028-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_2.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/Normandy-Shores9.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/About-Team-Olivia-Harper-FL-1.jpg" alt="" loading="lazy"></div>
+    </div>
+    <div class="ohc2-row ohc2-row-2">
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios029-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios030-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios031-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios032-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios034-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate-Olvia-Harper5-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios029-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios030-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios031-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios032-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios034-scaled.jpg" alt="" loading="lazy"></div>
+      <div class="ohc2-cell"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate-Olvia-Harper5-scaled.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+
+</section>
+	</div>
+		</main>
+
+			<!--   Unlimited Elements 2.0.7 Scripts --> 
+<style>
+			.unlimited-elements-background-overlay{
+				position:absolute;
+				top:0px;
+				left:0px;
+				width:100%;
+				height:100%;
+				z-index:0;
+			}
+
+			.unlimited-elements-background-overlay.uc-bg-front{
+				z-index:999;
+			}
+		</style>
+
+		

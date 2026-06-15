@@ -1,0 +1,31 @@
+.elementor-kit-7{--e-global-color-primary:#6e6e6e;--e-global-color-secondary:#9a9a9a;--e-global-color-text:#313131;--e-global-color-accent:#424242;--e-global-color-be8821f:#f2f2f2;--e-global-color-81af2a9:#ffffff;--e-global-typography-primary-font-family:"F37 Bolton";--e-global-typography-primary-font-size:75px;--e-global-typography-primary-font-weight:normal;--e-global-typography-primary-line-height:1em;--e-global-typography-secondary-font-family:"F37 Bolton";--e-global-typography-secondary-font-size:65px;--e-global-typography-secondary-font-weight:400;--e-global-typography-secondary-line-height:1em;--e-global-typography-text-font-family:"F37 Bolton";--e-global-typography-text-font-size:17px;--e-global-typography-text-font-weight:300;--e-global-typography-text-line-height:1.4em;--e-global-typography-accent-font-family:"Roboto";--e-global-typography-accent-font-size:17px;--e-global-typography-accent-font-weight:normal;--e-global-typography-accent-line-height:1em;--e-global-typography-b124d79-font-family:"Garamond MT W04";--e-global-typography-b124d79-font-size:25px;--e-global-typography-b124d79-font-style:italic;--e-global-typography-b124d79-line-height:1.3em;--e-global-typography-90cb934-font-family:"F37 Bolton";--e-global-typography-90cb934-font-size:14px;--e-global-typography-90cb934-font-weight:normal;--e-global-typography-90cb934-line-height:1em;--e-global-typography-5fdc412-font-family:"F37 Bolton";--e-global-typography-5fdc412-font-size:55px;--e-global-typography-5fdc412-font-weight:normal;--e-global-typography-5fdc412-line-height:1em;--e-global-typography-373395e-font-family:"F37 Bolton";--e-global-typography-373395e-font-size:45px;--e-global-typography-373395e-line-height:1em;--e-global-typography-98b48cd-font-family:"F37 Bolton";--e-global-typography-98b48cd-font-size:35px;--e-global-typography-98b48cd-font-weight:normal;--e-global-typography-98b48cd-line-height:1em;--e-global-typography-b8b03d9-font-family:"F37 Bolton";--e-global-typography-b8b03d9-font-size:18px;--e-global-typography-b8b03d9-font-weight:normal;--e-global-typography-b8b03d9-line-height:1.2em;--e-global-typography-c0512c1-font-family:"Gallient Regular";--e-global-typography-c0512c1-font-size:45px;--e-global-typography-c0512c1-font-weight:normal;--e-global-typography-c0512c1-line-height:1.2em;--e-global-typography-3f56744-font-family:"Gallient Regular";--e-global-typography-3f56744-font-size:70px;--e-global-typography-3f56744-line-height:1.1em;background-color:var( --e-global-color-be8821f );}.elementor-kit-7 e-page-transition{background-color:#c9c9c9;}.elementor-kit-7 a{color:var( --e-global-color-primary );}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1140px;}.e-con{--container-max-width:1140px;}.elementor-widget:not(:last-child){--kit-widget-spacing:20px;}.elementor-element{--widgets-spacing:20px 20px;--widgets-spacing-row:20px;--widgets-spacing-column:20px;}{}h1.entry-title{display:var(--page-title-display);}@media(max-width:1024px){.elementor-kit-7{--e-global-typography-primary-font-size:55px;--e-global-typography-secondary-font-size:45px;--e-global-typography-text-font-size:15px;--e-global-typography-accent-font-size:15px;--e-global-typography-b124d79-font-size:20px;--e-global-typography-90cb934-font-size:13px;--e-global-typography-5fdc412-font-size:35px;--e-global-typography-373395e-font-size:30px;--e-global-typography-98b48cd-font-size:25px;--e-global-typography-b8b03d9-font-size:18px;--e-global-typography-c0512c1-font-size:40px;--e-global-typography-3f56744-font-size:55px;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1024px;}.e-con{--container-max-width:1024px;}}@media(max-width:767px){.elementor-kit-7{--e-global-typography-primary-font-size:10vw;--e-global-typography-secondary-font-size:8vw;--e-global-typography-text-font-size:13px;--e-global-typography-accent-font-size:14px;--e-global-typography-b124d79-font-size:20px;--e-global-typography-90cb934-font-size:12px;--e-global-typography-5fdc412-font-size:6.5vw;--e-global-typography-373395e-font-size:5.5vw;--e-global-typography-98b48cd-font-size:4.5vw;--e-global-typography-b8b03d9-font-size:16px;--e-global-typography-c0512c1-font-size:7.5vw;--e-global-typography-3f56744-font-size:9vw;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:767px;}.e-con{--container-max-width:767px;}}/* Start Custom Fonts CSS */@font-face {
+	font-family: 'F37 Bolton';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('../../2026/02/F37BoltonArabic-VF.woff2') format('woff2');
+}
+/* End Custom Fonts CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Garamond MT W04';
+	font-style: normal;
+	font-weight: bold;
+	font-display: auto;
+	src: url('../../2026/02/Garamond-MT-W04-Bold-Italic.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Garamond MT W04';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('../../2026/02/Garamond-MT-W04-Italic.woff2') format('woff2');
+}
+/* End Custom Fonts CSS */
+/* Start Custom Fonts CSS */@font-face {
+	font-family: 'Gallient Regular';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src: url('../../2026/02/Gallient.woff2') format('woff2');
+}
+/* End Custom Fonts CSS */

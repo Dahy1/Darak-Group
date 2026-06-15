@@ -1,0 +1,124 @@
+<!-- Inline menu links live OUTSIDE the fixed bar: they sit in the page (not
+     pinned) and scroll away with the content on first scroll. -->
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		
+		
+<main id="content" class="site-main page type-page status-publish hentry">
+
+<article class="ohart">
+<style>
+  .ohart{background:#fff;color:#111;font-family:'Helvetica Neue',Arial,sans-serif;
+    padding:clamp(108px,15vh,180px) 0 clamp(70px,11vh,130px);}
+  .ohart *{box-sizing:border-box;}
+  .ohart-col{width:100%;max-width:760px;margin:0 auto;padding:0 clamp(22px,5vw,40px);}
+  .ohart-wide{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(22px,5vw,60px);}
+  .ohart-back{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:rgba(17,17,17,.6);
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:gap .35s ease,color .3s ease;}
+  .ohart-back svg{width:15px;height:13px;}
+  .ohart-back:hover{color:#111;gap:13px;}
+  .ohart-meta{margin:clamp(34px,5vh,56px) 0 0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(17,17,17,.5);}
+  .ohart-title{margin:18px 0 0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1.02;
+    letter-spacing:-.02em;font-size:clamp(34px,5.4vw,72px);}
+  .ohart-dek{margin:clamp(20px,2.6vw,30px) 0 0;font-size:clamp(18px,1.6vw,24px);line-height:1.5;color:rgba(17,17,17,.7);}
+  .ohart-byline{margin:clamp(20px,2.4vw,28px) 0 0;font-size:13px;letter-spacing:.04em;color:rgba(17,17,17,.5);}
+  .ohart-cover{margin:clamp(40px,6vh,72px) auto 0;}
+  .ohart-cover .ohart-frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e9e9e7;border-radius:3px;}
+  .ohart-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);}
+  .ohart-body{margin:clamp(44px,6vh,76px) auto 0;}
+  .ohart-body p{margin:0 0 1.35em;font-size:clamp(16px,1.15vw,19px);line-height:1.78;color:rgba(17,17,17,.82);}
+  .ohart-body h2{margin:1.7em 0 .5em;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1.1;
+    letter-spacing:-.01em;font-size:clamp(26px,2.6vw,40px);color:#111;}
+  .ohart-body ul{margin:0 0 1.35em;padding-left:0;list-style:none;}
+  .ohart-body li{position:relative;padding-left:24px;margin:0 0 .6em;font-size:clamp(16px,1.15vw,19px);
+    line-height:1.7;color:rgba(17,17,17,.82);}
+  .ohart-body li::before{content:'';position:absolute;left:0;top:.7em;width:8px;height:1px;background:#111;}
+  .ohart-quote{margin:1.7em 0;padding-left:26px;border-left:2px solid #111;
+    font-family:'Gallient',Georgia,serif;font-weight:400;font-size:clamp(23px,2.6vw,36px);
+    line-height:1.22;letter-spacing:-.01em;color:#111;}
+  .ohart-end{max-width:760px;margin:clamp(56px,8vh,96px) auto 0;padding:clamp(28px,4vh,44px) clamp(22px,5vw,40px) 0;
+    border-top:1px solid rgba(0,0,0,.14);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+  .ohart-end-by{font-size:13px;letter-spacing:.04em;color:rgba(17,17,17,.55);}
+  .ohart-next{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:#111;font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,.3);padding-bottom:5px;
+    transition:gap .35s ease,border-color .35s ease;}
+  .ohart-next svg{width:14px;height:13px;}
+  .ohart-next:hover{gap:14px;border-color:#111;}
+
+  .ohart-more{margin:clamp(64px,9vh,120px) auto 0;}
+  .ohart-more-h{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(17,17,17,.5);
+    padding-bottom:22px;border-bottom:1px solid rgba(0,0,0,.12);}
+  .ohart-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,2.4vw,40px);margin-top:clamp(34px,4vh,52px);}
+  .ohart-mcard{text-decoration:none;color:inherit;display:block;}
+  .ohart-mmedia{position:relative;aspect-ratio:3/2;overflow:hidden;background:#e9e9e7;border-radius:3px;}
+  .ohart-mmedia img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.05);transition:transform 1s cubic-bezier(.16,1,.3,1);}
+  .ohart-mcard:hover .ohart-mmedia img{transform:scale(1.04);}
+  .ohart-mtag{display:block;margin-top:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(17,17,17,.5);}
+  .ohart-mtitle{margin:9px 0 0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1.1;
+    font-size:clamp(19px,1.5vw,25px);}
+  @media (max-width:760px){ .ohart-more-grid{grid-template-columns:1fr;} }
+</style>
+  <div class="ohart-col">
+    <a class="ohart-back" href="/blog/"><svg viewbox="0 0 16 14" fill="none" aria-hidden="true"><path d="M7 1L1 7l6 6M1 7h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg> The Journal</a>
+    <div class="ohart-meta">Craft  ·  May 28, 2026  ·  5 min read</div>
+    <h1 class="ohart-title">Why We Build by Hand</h1>
+    <p class="ohart-dek">A home is only as good as the hands that make it. At Darak Group we keep construction in-house so design intent survives all the way to the last fixture.</p>
+    <div class="ohart-byline">Written by Darak Group</div>
+  </div>
+
+  <div class="ohart-cover ohart-wide"><div class="ohart-frame"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios028-scaled.jpg" alt="Why We Build by Hand"></div></div>
+
+  <div class="ohart-body ohart-col">
+        <p>Most developers in Egypt hand a project off a dozen times before it is finished. Drawings pass to a main contractor, who passes them to subcontractors, who interpret them on site with no one from the design team in the room. By the time a decision reaches the wall, the reasoning behind it is long gone.</p>
+        <h2>One team, one standard</h2>
+        <p>We work differently. The people who detail a junction are the people who build it. Structure, envelope, joinery and finish are delivered by a single in-house team held to one exacting standard — so nothing is value-engineered away when no one is looking.</p>
+        <blockquote class="ohart-quote">A home's worth is not measured by the day it is delivered, but by how it endures.</blockquote>
+        <p>That continuity is slow by design. We deliver a limited number of homes each phase because craft does not scale the way a spreadsheet wants it to. What it buys is a residence that still reads as considered in ten years as it did on the day of handover.</p>
+        <h2>Where it shows</h2>
+        <p>It shows in the places you do not photograph: the way a stone return lines up with a reveal, the silence of a door that was hung twice until it was right, the services laid out as carefully as the kitchen. The details no one asks about are the ones that decide whether a home feels built or merely assembled.</p></div>
+
+  <div class="ohart-end">
+    <span class="ohart-end-by">Darak Group · The Journal</span>
+    <a class="ohart-next" href="/blog/designing-for-light/">Next: Designing for the Egyptian Sun <svg viewbox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+  </div>
+
+  <div class="ohart-more ohart-wide">
+    <div class="ohart-more-h">More from the Journal</div>
+    <div class="ohart-more-grid">
+        <a class="ohart-mcard" href="/blog/designing-for-light/">
+          <div class="ohart-mmedia"><img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_9.jpg" alt="Designing for the Egyptian Sun" loading="lazy"></div>
+          <span class="ohart-mtag">Design</span>
+          <h3 class="ohart-mtitle">Designing for the Egyptian Sun</h3>
+        </a>
+        <a class="ohart-mcard" href="/blog/materials-that-endure/">
+          <div class="ohart-mmedia"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios031-scaled.jpg" alt="Choosing Materials That Endure" loading="lazy"></div>
+          <span class="ohart-mtag">Materials</span>
+          <h3 class="ohart-mtitle">Choosing Materials That Endure</h3>
+        </a>
+        <a class="ohart-mcard" href="/blog/inside-a-waterfront-build/">
+          <div class="ohart-mmedia"><img src="/wp-content/uploads/2026/02/1716-S.-Bayshore-Drive2-scaled.jpg" alt="Inside a North Coast Build: Almaza Bay" loading="lazy"></div>
+          <span class="ohart-mtag">Projects</span>
+          <h3 class="ohart-mtitle">Inside a North Coast Build: Almaza Bay</h3>
+        </a></div>
+  </div>
+</article>
+</main>
+
+			<!--   Unlimited Elements 2.0.7 Scripts --> 
+<style>
+			.unlimited-elements-background-overlay{
+				position:absolute;
+				top:0px;
+				left:0px;
+				width:100%;
+				height:100%;
+				z-index:0;
+			}
+
+			.unlimited-elements-background-overlay.uc-bg-front{
+				z-index:999;
+			}
+		</style>
+
+		
