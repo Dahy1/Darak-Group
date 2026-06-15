@@ -10,18 +10,23 @@ PREFIX = '/Darak-Group'
 
 
 def fix_html(t):
-    # attributes whose value is a single root-absolute path (skip protocol-relative //)
-    t = re.sub(r'(\b(?:href|src|poster|action|data-url)=")/(?!/)', r'\1' + PREFIX + '/', t)
+    # attributes whose value is a single root-absolute path — single OR double quoted
+    # (skip protocol-relative //). WordPress enqueues head CSS with single quotes.
+    t = re.sub(r"""(\b(?:href|src|poster|action|data-url)=['"])/(?!/)""", r'\1' + PREFIX + '/', t)
     # og:image / og:url style meta (only values that start with a single slash)
-    t = re.sub(r'(content=")/(?!/)', r'\1' + PREFIX + '/', t)
+    t = re.sub(r"""(content=['"])/(?!/)""", r'\1' + PREFIX + '/', t)
     # url(...) inside inline styles, <style> blocks and @font-face
     t = re.sub(r'url\((["\']?)/(?!/)', r'url(\1' + PREFIX + '/', t)
     # JSON-LD path fields
     t = re.sub(r'("(?:url|@id|contentUrl)":")/(?!/)', r'\1' + PREFIX + '/', t)
-    # srcset: prefix every candidate URL in the list
+    # srcset: prefix every candidate URL in the list (single or double quoted)
     def _srcset(m):
-        return 'srcset="' + re.sub(r'(^|,\s*)/(?!/)', r'\1' + PREFIX + '/', m.group(1)) + '"'
-    t = re.sub(r'srcset="([^"]*)"', _srcset, t)
+        q, val = m.group(1), m.group(2)
+        return 'srcset=' + q + re.sub(r'(^|,\s*)/(?!/)', r'\1' + PREFIX + '/', val) + q
+    t = re.sub(r"""srcset=(['"])(.*?)\1""", _srcset, t, flags=re.S)
+    # escaped paths inside inline JS configs (Elementor loads handlers from these)
+    t = t.replace('\\/wp-content', '\\/Darak-Group\\/wp-content')
+    t = t.replace('\\/wp-includes', '\\/Darak-Group\\/wp-includes')
     return t
 
 
