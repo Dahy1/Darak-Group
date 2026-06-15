@@ -27,6 +27,8 @@ def fix_html(t):
     # escaped paths inside inline JS configs (Elementor loads handlers from these)
     t = t.replace('\\/wp-content', '\\/Darak-Group\\/wp-content')
     t = t.replace('\\/wp-includes', '\\/Darak-Group\\/wp-includes')
+    # bare quoted absolute asset paths inside inline <script> (not href/src attributes)
+    t = re.sub(r"""(['"])/(wp-content|wp-includes|icons)/""", r'\1' + PREFIX + r'/\2/', t)
     return t
 
 

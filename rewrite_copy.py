@@ -68,7 +68,8 @@ def mask(html):
             return '\x00%d\x00' % (len(store) - 1)
         return m.group(0)
 
-    html = re.sub(r'"[^"]*"', q, html)
+    html = re.sub(r'"[^"]*"', q, html)   # double-quoted paths
+    html = re.sub(r"'[^']*'", q, html)   # single-quoted paths (e.g. inline-script image lists)
     return html, store
 
 
