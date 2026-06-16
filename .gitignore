@@ -22,6 +22,9 @@ saveweb2zip-com-oliviaharperhomes-com/
 saveweb2zip-com-www-zeitmedia-vn/
 zeit-capture/
 
+# the 3D virtual tour is its own repo (github.com/Dahy1/Darak-Tour)
+3D Virtual Tour/
+
 # os / editor
 .DS_Store
 Thumbs.db
