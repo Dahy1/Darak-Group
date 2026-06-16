@@ -1186,6 +1186,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohpr-track{display:flex;gap:clamp(18px,2vw,30px);width:max-content;}
   .ohpr-card{flex:0 0 auto;text-decoration:none;color:inherit;width:clamp(280px,38vw,430px);scroll-snap-align:start;}
   .ohpr-card.is-hidden{display:none;}
+  .ohpr-card-badge{position:absolute;top:14px;left:14px;z-index:3;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(17,17,17,.82);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+  .ohpr-card[data-status="coming-soon"]{cursor:default;}
+  .ohpr-card[data-status="coming-soon"] .ohpr-card-img{filter:grayscale(.3) brightness(.88);}
+  .ohpr-preview--soon{opacity:.72;}
 
   .ohpr-card-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:#e9e9e7;border-radius:3px;}
   .ohpr-card-img{position:absolute!important;inset:0;width:100%!important;height:100%!important;
@@ -1354,8 +1358,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
       </a>
-      <a class="ohpr-card" data-region="newcairo" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">
-        <div class="ohpr-card-media">
+      <a class="ohpr-card" data-status="coming-soon" data-region="newcairo" href="" target="_blank" rel="noopener">
+        <div class="ohpr-card-media"><span class="ohpr-card-badge">Coming Soon</span>
           <img class="ohpr-card-img" src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios040-scaled.jpg" alt="Katameya Greens" loading="lazy">
           <div class="ohpr-card-grad"></div>
           <div class="ohpr-card-top">
@@ -1366,13 +1370,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <h3 class="ohpr-card-name">Katameya Greens</h3>
             <p class="ohpr-card-tag">Golf-side villas in New Cairo</p>
             <div class="ohpr-card-actions">
-              <span class="ohpr-preview">Preview</span>
+              <span class="ohpr-preview ohpr-preview--soon">Coming Soon</span>
             </div>
           </div>
         </div>
       </a>
-      <a class="ohpr-card" data-region="coast" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">
-        <div class="ohpr-card-media">
+      <a class="ohpr-card" data-status="coming-soon" data-region="coast" href="" target="_blank" rel="noopener">
+        <div class="ohpr-card-media"><span class="ohpr-card-badge">Coming Soon</span>
           <img class="ohpr-card-img" src="/wp-content/uploads/2026/02/Normandy-Shores_02_Staircase_011.png" alt="Almaza Bay Chalets" loading="lazy">
           <div class="ohpr-card-grad"></div>
           <div class="ohpr-card-top">
@@ -1383,7 +1387,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <h3 class="ohpr-card-name">Almaza Bay Chalets</h3>
             <p class="ohpr-card-tag">Beachfront chalets at Almaza Bay</p>
             <div class="ohpr-card-actions">
-              <span class="ohpr-preview">Preview</span>
+              <span class="ohpr-preview ohpr-preview--soon">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -2131,14 +2135,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   </div>
 
   <form class="ohs-finder" action="/homes-projects/" method="get" aria-label="Property finder">
+    <input type="hidden" name="view" value="units">
     <div class="ohs-field">
       <label for="ohsType">Property Type</label>
       <select id="ohsType" name="type">
         <option value="">Any</option>
-        <option value="waterfront-estate">Waterfront Estate</option>
-        <option value="modern-villa">Modern Villa</option>
-        <option value="island-residence">Island Residence</option>
-        <option value="new-development">New Development</option>
+        <option value="apartment">Apartment</option>
+        <option value="villa">Villa</option>
+        <option value="townhouse">Townhouse</option>
+        <option value="chalet">Chalet</option>
       </select>
     </div>
     <div class="ohs-field">
@@ -2155,20 +2160,20 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <label for="ohsLocation">Location</label>
       <select id="ohsLocation" name="location">
         <option value="">Any</option>
-        <option value="coconut-grove">New Cairo</option>
-        <option value="miami-beach">New Cairo</option>
-        <option value="surfside">New Capital</option>
-        <option value="hibiscus-island">North Coast</option>
+        <option value="newcairo">New Cairo</option>
+        <option value="zayed">Sheikh Zayed</option>
+        <option value="coast">North Coast</option>
+        <option value="capital">New Capital</option>
       </select>
     </div>
     <div class="ohs-field">
       <label for="ohsPrice">Starting Price</label>
       <select id="ohsPrice" name="price">
         <option value="">Any</option>
-        <option value="2-5">$2M – $5M</option>
-        <option value="5-10">$5M – $10M</option>
-        <option value="10-20">$10M – $20M</option>
-        <option value="20+">$20M+</option>
+        <option value="0-10">Under EGP 10M</option>
+        <option value="10-20">EGP 10M – 20M</option>
+        <option value="20-40">EGP 20M – 40M</option>
+        <option value="40+">EGP 40M+</option>
       </select>
     </div>
     <button type="submit" class="ohs-submit">Search Homes</button>
@@ -2524,7 +2529,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     transition: opacity .7s cubic-bezier(.16,1,.3,1); }
   .ohn-card:hover .ohn-overlay { opacity: 0; }
   .ohn-content { position: absolute; inset: 0; display: flex; flex-direction: column;
-    justify-content: flex-end; padding: clamp(20px,2.4vw,44px); z-index: 2; }
+    justify-content: flex-end; padding: clamp(20px,2.4vw,44px); z-index: 2;
+    background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.5) 26%, rgba(0,0,0,0) 62%); }
   .ohn-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; width: 100%; }
   .ohn-text { display: flex; flex-direction: column; gap: 12px; }
   .ohn-text h3 { font-family: 'Gallient', Georgia, serif; font-weight: 400; line-height: 1.04;

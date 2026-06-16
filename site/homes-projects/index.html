@@ -650,6 +650,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </div>
         
       </div>
+      <div class="ohpr-toggle" role="tablist" aria-label="View"><button type="button" class="ohpr-tgl is-active" data-view="projects" aria-selected="true">Projects</button><button type="button" class="ohpr-tgl" data-view="units" aria-selected="false">Units</button></div>
       <nav class="ohpr-tabs" aria-label="Filter projects"><button type="button" class="ohpr-tab is-active" data-filter="all"><span class="ohpr-tab-dot"></span><span>All</span></button><button type="button" class="ohpr-tab" data-filter="newcairo"><span class="ohpr-tab-dot"></span><span>New Cairo</span></button><button type="button" class="ohpr-tab" data-filter="zayed"><span class="ohpr-tab-dot"></span><span>Sheikh Zayed</span></button><button type="button" class="ohpr-tab" data-filter="coast"><span class="ohpr-tab-dot"></span><span>North Coast</span></button><button type="button" class="ohpr-tab" data-filter="capital"><span class="ohpr-tab-dot"></span><span>New Capital</span></button></nav>
     </div>
     <div class="ohpr-progress" aria-hidden="true"><span class="ohpr-prog-fill" data-ohpr-prog></span></div>
@@ -723,8 +724,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           </div>
         </div>
       </a>
-      <a class="ohpr-card" data-region="newcairo" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">
-        <div class="ohpr-card-media">
+      <a class="ohpr-card" data-status="coming-soon" data-region="newcairo" href="" target="_blank" rel="noopener">
+        <div class="ohpr-card-media"><span class="ohpr-card-badge">Coming Soon</span>
           <img class="ohpr-card-img" src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios040-scaled.jpg" alt="Katameya Greens" loading="lazy">
           <div class="ohpr-card-grad"></div>
           <div class="ohpr-card-top">
@@ -735,13 +736,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <h3 class="ohpr-card-name">Katameya Greens</h3>
             <p class="ohpr-card-tag">Golf-side villas in New Cairo</p>
             <div class="ohpr-card-actions">
-              <span class="ohpr-preview">Preview</span>
+              <span class="ohpr-preview ohpr-preview--soon">Coming Soon</span>
             </div>
           </div>
         </div>
       </a>
-      <a class="ohpr-card" data-region="coast" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">
-        <div class="ohpr-card-media">
+      <a class="ohpr-card" data-status="coming-soon" data-region="coast" href="" target="_blank" rel="noopener">
+        <div class="ohpr-card-media"><span class="ohpr-card-badge">Coming Soon</span>
           <img class="ohpr-card-img" src="/wp-content/uploads/2026/02/Normandy-Shores_02_Staircase_011.png" alt="Almaza Bay Chalets" loading="lazy">
           <div class="ohpr-card-grad"></div>
           <div class="ohpr-card-top">
@@ -752,7 +753,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <h3 class="ohpr-card-name">Almaza Bay Chalets</h3>
             <p class="ohpr-card-tag">Beachfront chalets at Almaza Bay</p>
             <div class="ohpr-card-actions">
-              <span class="ohpr-preview">Preview</span>
+              <span class="ohpr-preview ohpr-preview--soon">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -765,6 +766,180 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         <button type="button" class="ohpr-arrow" data-ohpr-next aria-label="Next"><svg viewBox="0 0 16 14" fill="none" aria-hidden="true"><path d="M9 1l6 6-6 6M15 7H1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
+<style>
+  .ohpr-toggle{display:inline-flex;gap:4px;background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.1);border-radius:999px;padding:4px;margin-top:clamp(28px,4vw,48px);}
+  .ohpr-tgl{cursor:pointer;border:none;background:transparent;border-radius:999px;padding:9px 22px;font:inherit;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(17,17,17,.6);transition:background .3s ease,color .3s ease;}
+  .ohpr-tgl.is-active{background:#111;color:#fff;}
+  .ohpr.show-units .ohpr-progress,.ohpr.show-units .ohpr-viewport,.ohpr.show-units .ohpr-controls{display:none;}
+  .ohpr:not(.show-units) .ohpr-units{display:none;}
+  .ohpr-units{margin-top:clamp(30px,4vw,52px);}
+  .ohu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2vw,32px);}
+  .ohu-card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:6px;overflow:hidden;transition:box-shadow .4s ease,border-color .4s ease;}
+  .ohu-card.is-hidden{display:none;}
+  .ohu-card:hover{box-shadow:0 30px 60px -42px rgba(0,0,0,.45);border-color:rgba(0,0,0,.2);}
+  .ohu-media{position:relative;aspect-ratio:16/11;overflow:hidden;background:#e9e9e7;}
+  .ohu-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.16,1,.3,1);}
+  .ohu-card:hover .ohu-media img{transform:scale(1.05);}
+  .ohu-badge{position:absolute;top:14px;left:14px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+  .ohu-badge--ok{background:rgba(255,255,255,.85);color:#111;}
+  .ohu-badge--soon{background:rgba(17,17,17,.82);color:#fff;}
+  .ohu-body{display:flex;flex-direction:column;gap:14px;padding:clamp(18px,1.8vw,26px);flex:1;}
+  .ohu-meta{display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(17,17,17,.5);}
+  .ohu-code{color:rgba(17,17,17,.4);}
+  .ohu-name{margin:0;font-family:'Gallient',Georgia,serif;font-weight:400;font-size:clamp(20px,1.7vw,26px);line-height:1.1;letter-spacing:-.01em;}
+  .ohu-specs{display:grid;grid-template-columns:1fr 1fr;gap:11px 18px;margin:2px 0 0;}
+  .ohu-specs > div{display:flex;flex-direction:column;gap:3px;}
+  .ohu-specs dt{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(17,17,17,.45);}
+  .ohu-specs dd{margin:0;font-size:14.5px;color:#111;}
+  .ohu-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(0,0,0,.1);}
+  .ohu-price{font-size:15px;font-weight:600;color:#111;}
+  .ohu-cta{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#111;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid rgba(0,0,0,.3);padding-bottom:3px;transition:gap .3s ease,border-color .3s ease;}
+  .ohu-cta svg{width:13px;height:12px;}
+  .ohu-cta:hover{gap:11px;border-color:#111;}
+  .ohu-soon{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(17,17,17,.4);}
+  .ohu-card[data-status="coming-soon"]{background:#fafafa;}
+  .ohu-card[data-status="coming-soon"] .ohu-media img{filter:grayscale(.4) brightness(.92);}
+  .ohu-empty{margin:44px 0 0;font-size:15px;color:rgba(17,17,17,.6);text-align:center;}
+  .ohu-empty button{background:none;border:none;color:#111;text-decoration:underline;cursor:pointer;font:inherit;}
+  .ohpr-card-badge{position:absolute;top:14px;left:14px;z-index:3;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(17,17,17,.82);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+  .ohpr-card[data-status="coming-soon"]{cursor:default;}
+  .ohpr-card[data-status="coming-soon"] .ohpr-card-img{filter:grayscale(.3) brightness(.88);}
+  .ohpr-preview--soon{opacity:.72;}
+  @media (max-width:980px){.ohu-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:640px){.ohu-grid{grid-template-columns:1fr;}}
+</style>
+  <!-- ============ UNITS VIEW (toggle target; search-driven) ============ -->
+  <div class="ohpr-units" data-ohpr-units>
+    <div class="ohu-grid">
+      <article class="ohu-card" data-region="newcairo" data-type="apartment" data-beds="3" data-price="14.5" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/1716-S.-Bayshore-Drive2-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">The Address New Cairo</span><span class="ohu-code">Unit A-204</span></div>
+          <h3 class="ohu-name">3-Bedroom Apartment</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>New Cairo</dd></div><div><dt>Type</dt><dd>Apartment</dd></div><div><dt>Bedrooms</dt><dd>3</dd></div><div><dt>Size</dt><dd>165 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 14.5M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="newcairo" data-type="apartment" data-beds="4" data-price="22" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/1716-S.-Bayshore-Drive2-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">The Address New Cairo</span><span class="ohu-code">Unit B-512</span></div>
+          <h3 class="ohu-name">4-Bedroom Apartment</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>New Cairo</dd></div><div><dt>Type</dt><dd>Apartment</dd></div><div><dt>Bedrooms</dt><dd>4</dd></div><div><dt>Size</dt><dd>210 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 22M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="newcairo" data-type="apartment" data-beds="5" data-price="48" data-status="coming-soon">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/1716-S.-Bayshore-Drive2-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--soon">Coming Soon</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">The Address New Cairo</span><span class="ohu-code">Unit PH-01</span></div>
+          <h3 class="ohu-name">5-Bedroom Penthouse</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>New Cairo</dd></div><div><dt>Type</dt><dd>Apartment</dd></div><div><dt>Bedrooms</dt><dd>5</dd></div><div><dt>Size</dt><dd>320 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 48M</span><span class="ohu-soon">Coming soon</span></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="newcairo" data-type="villa" data-beds="5" data-price="65" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios040-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Katameya Greens</span><span class="ohu-code">Unit V-08</span></div>
+          <h3 class="ohu-name">5-Bedroom Villa</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>New Cairo</dd></div><div><dt>Type</dt><dd>Villa</dd></div><div><dt>Bedrooms</dt><dd>5</dd></div><div><dt>Size</dt><dd>420 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 65M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="newcairo" data-type="townhouse" data-beds="4" data-price="30" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios040-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Katameya Greens</span><span class="ohu-code">Unit TH-14</span></div>
+          <h3 class="ohu-name">4-Bedroom Townhouse</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>New Cairo</dd></div><div><dt>Type</dt><dd>Townhouse</dd></div><div><dt>Bedrooms</dt><dd>4</dd></div><div><dt>Size</dt><dd>265 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 30M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="zayed" data-type="townhouse" data-beds="4" data-price="34" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/1710-S.-Bayshore-Drive1-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Zayed Dunes</span><span class="ohu-code">Unit T-11</span></div>
+          <h3 class="ohu-name">4-Bedroom Townhouse</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>Sheikh Zayed</dd></div><div><dt>Type</dt><dd>Townhouse</dd></div><div><dt>Bedrooms</dt><dd>4</dd></div><div><dt>Size</dt><dd>290 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 34M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="zayed" data-type="villa" data-beds="6" data-price="88" data-status="coming-soon">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/1710-S.-Bayshore-Drive1-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--soon">Coming Soon</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Zayed Dunes</span><span class="ohu-code">Unit S-03</span></div>
+          <h3 class="ohu-name">6-Bedroom Standalone Villa</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>Sheikh Zayed</dd></div><div><dt>Type</dt><dd>Villa</dd></div><div><dt>Bedrooms</dt><dd>6</dd></div><div><dt>Size</dt><dd>510 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 88M</span><span class="ohu-soon">Coming soon</span></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="coast" data-type="chalet" data-beds="3" data-price="9.5" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_12.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Marsa Sahel Residences</span><span class="ohu-code">Unit C-22</span></div>
+          <h3 class="ohu-name">3-Bedroom Chalet</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>North Coast</dd></div><div><dt>Type</dt><dd>Chalet</dd></div><div><dt>Bedrooms</dt><dd>3</dd></div><div><dt>Size</dt><dd>140 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 9.5M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="coast" data-type="chalet" data-beds="4" data-price="13" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_12.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Marsa Sahel Residences</span><span class="ohu-code">Unit C-40</span></div>
+          <h3 class="ohu-name">4-Bedroom Chalet</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>North Coast</dd></div><div><dt>Type</dt><dd>Chalet</dd></div><div><dt>Bedrooms</dt><dd>4</dd></div><div><dt>Size</dt><dd>175 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 13M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="coast" data-type="chalet" data-beds="4" data-price="18" data-status="coming-soon">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/Normandy-Shores_02_Staircase_011.png" alt="" loading="lazy"><span class="ohu-badge ohu-badge--soon">Coming Soon</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Almaza Bay Chalets</span><span class="ohu-code">Unit BC-07</span></div>
+          <h3 class="ohu-name">4-Bedroom Beach Chalet</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>North Coast</dd></div><div><dt>Type</dt><dd>Chalet</dd></div><div><dt>Bedrooms</dt><dd>4</dd></div><div><dt>Size</dt><dd>190 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 18M</span><span class="ohu-soon">Coming soon</span></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="capital" data-type="apartment" data-beds="3" data-price="8.5" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate3-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Capital Heights</span><span class="ohu-code">Unit CH-1203</span></div>
+          <h3 class="ohu-name">3-Bedroom Apartment</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>New Capital</dd></div><div><dt>Type</dt><dd>Apartment</dd></div><div><dt>Bedrooms</dt><dd>3</dd></div><div><dt>Size</dt><dd>155 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 8.5M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ohu-card" data-region="capital" data-type="apartment" data-beds="4" data-price="19" data-status="available">
+        <div class="ohu-media"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate3-scaled.jpg" alt="" loading="lazy"><span class="ohu-badge ohu-badge--ok">Available</span></div>
+        <div class="ohu-body">
+          <div class="ohu-meta"><span class="ohu-proj">Capital Heights</span><span class="ohu-code">Unit SL-30</span></div>
+          <h3 class="ohu-name">4-Bedroom Sky Loft</h3>
+          <dl class="ohu-specs"><div><dt>Location</dt><dd>New Capital</dd></div><div><dt>Type</dt><dd>Apartment</dd></div><div><dt>Bedrooms</dt><dd>4</dd></div><div><dt>Size</dt><dd>230 m&sup2;</dd></div></dl>
+          <div class="ohu-foot"><span class="ohu-price">From EGP 19M</span><a class="ohu-cta" href="https://darak-tour-production.up.railway.app/Kozielska/Zone_A" target="_blank" rel="noopener">View unit <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+    <p class="ohu-empty" data-ohu-empty hidden>No units match your search. <button type="button" data-ohu-reset>Reset filters</button></p>
+  </div>
+<script>
+(function(){
+  var sec=document.getElementById('ohProjects'); if(!sec) return;
+  var toggle=sec.querySelector('.ohpr-toggle');
+  var units=Array.prototype.slice.call(sec.querySelectorAll('.ohu-card'));
+  var empty=sec.querySelector('[data-ohu-empty]');
+  var tabs=Array.prototype.slice.call(sec.querySelectorAll('.ohpr-tab'));
+  var state={region:'all',type:'',beds:'',price:''};
+  function priceOk(p){var v=parseFloat(p);switch(state.price){case '0-10':return v<10;case '10-20':return v>=10&&v<20;case '20-40':return v>=20&&v<40;case '40+':return v>=40;default:return true;}}
+  function applyUnits(){var shown=0;units.forEach(function(u){var ok=(state.region==='all'||u.getAttribute('data-region')===state.region)&&(!state.type||u.getAttribute('data-type')===state.type)&&(!state.beds||parseInt(u.getAttribute('data-beds'),10)>=parseInt(state.beds,10))&&priceOk(u.getAttribute('data-price'));u.classList.toggle('is-hidden',!ok);if(ok)shown++;});if(empty)empty.hidden=shown!==0;}
+  function setView(v){sec.classList.toggle('show-units',v==='units');if(toggle)toggle.querySelectorAll('.ohpr-tgl').forEach(function(b){var on=b.getAttribute('data-view')===v;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',on?'true':'false');});if(v==='units')applyUnits();}
+  if(toggle)toggle.addEventListener('click',function(e){var b=e.target.closest('.ohpr-tgl');if(b)setView(b.getAttribute('data-view'));});
+  tabs.forEach(function(t){t.addEventListener('click',function(){state.region=t.getAttribute('data-filter')||'all';applyUnits();});});
+  var reset=sec.querySelector('[data-ohu-reset]');
+  if(reset)reset.addEventListener('click',function(){state.type=state.beds=state.price='';state.region='all';tabs.forEach(function(x){x.classList.toggle('is-active',x.getAttribute('data-filter')==='all');});applyUnits();});
+  try{var q=new URLSearchParams(location.search);if(q.get('type'))state.type=q.get('type');if(q.get('beds'))state.beds=q.get('beds');if(q.get('price'))state.price=q.get('price');var loc=q.get('location');if(loc){state.region=loc;tabs.forEach(function(x){x.classList.toggle('is-active',x.getAttribute('data-filter')===loc);});}if(q.get('view')==='units'){setView('units');}else{applyUnits();}}catch(e){applyUnits();}
+})();
+</script>
   </div>
 <script>
 (function(){
