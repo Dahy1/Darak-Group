@@ -583,17 +583,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohj-card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
     aspect-ratio:3/4;border-radius:6px;overflow:hidden;color:#f2f2f2;padding:clamp(20px,2vw,30px);}
   .ohj-grid .ohj-media{position:absolute;inset:0;aspect-ratio:auto;border-radius:0;}
-  .ohj-card > .ohj-tag,.ohj-card > .ohj-card-title,.ohj-card > .ohj-card-meta,.ohj-card > .ohj-go{position:relative;z-index:2;}
+  .ohj-card > .ohj-tag,.ohj-card > .ohj-card-title,.ohj-card > .ohj-card-meta{position:relative;z-index:2;}
   .ohj-card .ohj-tag{margin:0;color:rgba(242,242,242,.82);}
   .ohj-card .ohj-card-title{margin:12px 0 0;color:#f2f2f2;font-size:clamp(22px,1.9vw,30px);}
   .ohj-card .ohj-card-title span{background:none;padding:0;}
   .ohj-card .ohj-card-excerpt{display:none;}
   .ohj-card .ohj-card-meta{margin-top:10px;color:rgba(242,242,242,.72);}
-  .ohj-go{position:absolute;top:clamp(18px,1.6vw,26px);right:clamp(18px,1.6vw,26px);z-index:2;
-    display:grid;place-items:center;width:45px;height:45px;border-radius:8px;background:rgba(242,242,242,.92);color:#111;
-    transition:background .4s ease,color .4s ease;}
-  .ohj-card:hover .ohj-go{background:#111;color:#f2f2f2;}
-  .ohj-go svg{width:18px;height:18px;}
   @media (max-width:900px){ .ohj-featured{aspect-ratio:4/3;} }
 </style>
   <div class="ohj-wrap">
@@ -614,28 +609,28 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
     <div class="ohj-divider"></div>
     <div class="ohj-grid">
-        <a class="ohj-link ohj-card" href="/blog/designing-for-light/"><span class="ohj-go"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21" aria-hidden="true"><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.4" d="m7.5 4.5 6 6-6 6"></path></svg></span>
+        <a class="ohj-link ohj-card" href="/blog/designing-for-light/">
           <div class="ohj-media"><img src="/wp-content/uploads/2026/02/112-West-Palm-Ave_1oakstudios_9.jpg" alt="Designing for the Egyptian Sun" loading="lazy"></div>
           <span class="ohj-tag">Design</span>
           <h3 class="ohj-card-title"><span>Designing for the Egyptian Sun</span></h3>
           <p class="ohj-card-excerpt">Orientation, shading and glass studied room by room — so every home stays cool and luminous from Cairo to the coast.</p>
           <div class="ohj-card-meta">May 12, 2026 &middot; 4 min read</div>
         </a>
-        <a class="ohj-link ohj-card" href="/blog/materials-that-endure/"><span class="ohj-go"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21" aria-hidden="true"><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.4" d="m7.5 4.5 6 6-6 6"></path></svg></span>
+        <a class="ohj-link ohj-card" href="/blog/materials-that-endure/">
           <div class="ohj-media"><img src="/wp-content/uploads/2026/02/4489-N-Michigan-Ave_1OAKStudios031-scaled.jpg" alt="Choosing Materials That Endure" loading="lazy"></div>
           <span class="ohj-tag">Materials</span>
           <h3 class="ohj-card-title"><span>Choosing Materials That Endure</span></h3>
           <p class="ohj-card-excerpt">From structural glass to hand-finished stone — how we select for Egypt's desert heat and coastal salt, not the day of delivery.</p>
           <div class="ohj-card-meta">Apr 30, 2026 &middot; 6 min read</div>
         </a>
-        <a class="ohj-link ohj-card" href="/blog/inside-a-waterfront-build/"><span class="ohj-go"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21" aria-hidden="true"><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.4" d="m7.5 4.5 6 6-6 6"></path></svg></span>
+        <a class="ohj-link ohj-card" href="/blog/inside-a-waterfront-build/">
           <div class="ohj-media"><img src="/wp-content/uploads/2026/02/1716-S.-Bayshore-Drive2-scaled.jpg" alt="Inside a North Coast Build: Almaza Bay" loading="lazy"></div>
           <span class="ohj-tag">Projects</span>
           <h3 class="ohj-card-title"><span>Inside a North Coast Build: Almaza Bay</span></h3>
           <p class="ohj-card-excerpt">A look behind the scenes of one of our North Coast developments — from raw sand to beachfront chalet.</p>
           <div class="ohj-card-meta">Apr 15, 2026 &middot; 7 min read</div>
         </a>
-        <a class="ohj-link ohj-card" href="/blog/what-turnkey-should-mean/"><span class="ohj-go"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21" aria-hidden="true"><path stroke="currentColor" stroke-linejoin="round" stroke-width="1.4" d="m7.5 4.5 6 6-6 6"></path></svg></span>
+        <a class="ohj-link ohj-card" href="/blog/what-turnkey-should-mean/">
           <div class="ohj-media"><img src="/wp-content/uploads/2026/02/Florida-Luxury-Real-Estate-Olvia-Harper1-scaled.jpg" alt="What “Turnkey” Should Really Mean" loading="lazy"></div>
           <span class="ohj-tag">Process</span>
           <h3 class="ohj-card-title"><span>What “Turnkey” Should Really Mean</span></h3>
