@@ -1,0 +1,231 @@
+/* =============================================================================
+   DARAK GROUP — DESIGN TOKENS  (source of truth)
+   -----------------------------------------------------------------------------
+   Drop this file in once, globally, before any component CSS:
+       <link rel="stylesheet" href="/design-system/tokens.css">
+
+   Two tiers:
+     1. PRIMITIVES  — the raw palette/scale. Never reference these in components.
+     2. SEMANTIC    — role-based aliases (--color-text, --color-bg, …). Components
+                      consume ONLY these, so re-theming is a one-line change.
+
+   Dark sections: add class="on-dark" to any container that sits on a deep-emerald
+   background. The semantic tokens flip automatically — child components need no
+   changes. See design-system/01-color.md.
+   ========================================================================== */
+
+:root {
+  /* ----------------------------------------------------------------------- */
+  /* 1 · PRIMITIVES                                                          */
+  /* ----------------------------------------------------------------------- */
+
+  /* Brand — emerald ramp. The four bold steps are the canonical brand colors
+     from the Darak palette; the rest are derived bridges for tints/states. */
+  --emerald-50:  #eef4f3;
+  --emerald-100: #d7e6e4;
+  --emerald-200: #aececb;
+  --emerald-300: #69c9c4;   /* BRAND · light aqua — "reflections": softness, care, hospitality */
+  --emerald-400: #4f9d98;
+  --emerald-500: #407b78;   /* BRAND · mid teal — secondary, links, calm */
+  --emerald-600: #295e5b;
+  --emerald-700: #16403e;
+  --emerald-800: #002d2b;   /* BRAND · deep emerald — primary, trust, exclusivity */
+  --emerald-900: #001f1d;   /* BRAND · darkest emerald — dark backgrounds, ink */
+
+  /* Neutrals — white-dominant. Off-whites carry a faint emerald cast so light
+     surfaces read as "part of the system" rather than clinical gray. */
+  --white:       #ffffff;
+  --paper-1:     #ffffff;   /* base page background (dominant) */
+  --paper-2:     #f4f8f7;   /* alternating sections / subtle wash (replaces old #f2f2f2) */
+  --paper-3:     #e4efed;   /* media placeholders, inset fills (replaces old #e9e9e7) */
+
+  /* Ink — emerald-tinted near-black. All text alphas derive from emerald-900,
+     so muted text is a desaturated emerald-gray, never a foreign neutral gray. */
+  --ink-rgb: 0, 31, 29;                       /* = emerald-900, for rgba() */
+  --ink:        rgb(var(--ink-rgb));          /* #001f1d */
+  --ink-soft:   rgba(var(--ink-rgb), 0.64);
+  --ink-muted:  rgba(var(--ink-rgb), 0.46);
+  --ink-faint:  rgba(var(--ink-rgb), 0.30);
+  --hairline:        rgba(var(--ink-rgb), 0.12);
+  --hairline-strong: rgba(var(--ink-rgb), 0.26);
+
+  /* On-dark — light values used when text/borders sit on deep emerald. */
+  --on-dark-rgb: 241, 246, 245;               /* ≈ paper-2 */
+  --on-dark:        rgb(var(--on-dark-rgb));
+  --on-dark-soft:   rgba(var(--on-dark-rgb), 0.72);
+  --on-dark-muted:  rgba(var(--on-dark-rgb), 0.50);
+  --on-dark-hairline: rgba(var(--on-dark-rgb), 0.18);
+
+  /* Functional — used sparingly (mostly form validation). Tuned to sit beside
+     emerald without clashing. */
+  --fn-success: #2e7d6b;
+  --fn-error:   #b23a2e;
+  --fn-warning: #b8862b;
+  --fn-info:    var(--emerald-500);
+
+  /* ----------------------------------------------------------------------- */
+  /* 2 · SEMANTIC  (components use these)                                    */
+  /* ----------------------------------------------------------------------- */
+  --color-bg:            var(--paper-1);
+  --color-surface:       var(--paper-2);
+  --color-surface-sunk:  var(--paper-3);
+
+  --color-text:          var(--ink);
+  --color-text-soft:     var(--ink-soft);
+  --color-text-muted:    var(--ink-muted);
+  --color-border:        var(--hairline);
+  --color-border-strong: var(--hairline-strong);
+
+  --color-primary:       var(--emerald-800);   /* solid actions, dark fills */
+  --color-primary-hover: var(--emerald-900);
+  --color-on-primary:    var(--white);         /* text/icon on a primary fill */
+
+  --color-secondary:     var(--emerald-500);   /* secondary accent, links on light */
+  --color-accent:        var(--emerald-300);   /* highlights, decorative, accent ON dark */
+
+  --color-link:          var(--emerald-600);   /* inline links on light (AA on white) */
+  --color-link-hover:    var(--emerald-800);
+
+  --color-focus:         var(--emerald-500);   /* focus ring on light */
+
+  /* Inverted/dark surfaces as explicit roles (for whole dark SECTIONS) */
+  --color-dark-bg:       var(--emerald-900);
+  --color-dark-surface:  var(--emerald-800);
+
+  /* ----------------------------------------------------------------------- */
+  /* 3 · TYPOGRAPHY                                                          */
+  /* ----------------------------------------------------------------------- */
+  --font-display: "novantique-serif", Georgia, 'Times New Roman', serif;   /* headlines, wordmark */
+  --font-sans:    "Avenir Next LT Pro", 'Helvetica Neue', Arial, Helvetica, sans-serif;  /* body, UI, labels */
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold:    700;
+
+  /* Fluid display scale — clamp(min, preferred-vw, max) */
+  --fs-display:  clamp(54px, 12vw, 200px);   /* hero wordmarks (Our News / Contact / Journal) */
+  --fs-h1:       clamp(40px, 6vw, 92px);
+  --fs-h2:       clamp(32px, 4.6vw, 76px);
+  --fs-h3:       clamp(22px, 2.1vw, 34px);    /* card titles */
+  --fs-h4:       clamp(20px, 1.9vw, 27px);
+  --fs-lead:     clamp(16px, 1.3vw, 20px);    /* intros / standfirst */
+  --fs-body:     clamp(15px, 1.2vw, 19px);
+  --fs-small:    14px;
+  --fs-eyebrow:  12px;                         /* uppercase labels */
+  --fs-caption:  11px;
+
+  --lh-tight:   0.9;     /* display */
+  --lh-snug:    1.06;    /* headings */
+  --lh-normal:  1.5;     /* body */
+  --lh-relaxed: 1.6;
+
+  --tracking-display: -0.02em;
+  --tracking-tight:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-eyebrow: 0.22em;   /* uppercase labels: 0.14em–0.28em */
+  --tracking-wide:    0.14em;
+
+  /* ----------------------------------------------------------------------- */
+  /* 4 · SPACING  (4px base; fluid steps for section rhythm)                 */
+  /* ----------------------------------------------------------------------- */
+  --space-2:  2px;
+  --space-4:  4px;
+  --space-8:  8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-56: 56px;
+  --space-72: 72px;
+  --space-96: 96px;
+
+  /* Fluid block/section padding */
+  --gutter:        clamp(20px, 5vw, 80px);          /* page side padding */
+  --section-y:     clamp(72px, 12vh, 150px);        /* vertical section padding */
+  --section-y-lg:  clamp(96px, 16vh, 210px);
+  --content-gap:   clamp(28px, 4vw, 68px);
+
+  --container:     1480px;   /* default max content width */
+  --container-wide: 1560px;
+  --container-text: 720px;   /* prose measure */
+
+  /* ----------------------------------------------------------------------- */
+  /* 5 · RADII                                                               */
+  /* ----------------------------------------------------------------------- */
+  --radius-xs:   2px;
+  --radius-sm:   3px;
+  --radius-md:   6px;
+  --radius-lg:   10px;
+  --radius-xl:   14px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+
+  /* ----------------------------------------------------------------------- */
+  /* 6 · ELEVATION                                                           */
+  /* ----------------------------------------------------------------------- */
+  --shadow-sm: 0 5px 15px rgba(var(--ink-rgb), 0.10);
+  --shadow-md: 0 16px 44px rgba(var(--ink-rgb), 0.16);
+  --shadow-lg: 0 26px 64px -22px rgba(0, 0, 0, 0.55);
+  --backdrop-blur: 16px;     /* frosted panels (finder, dropdowns, leader cards) */
+
+  /* ----------------------------------------------------------------------- */
+  /* 7 · MOTION                                                              */
+  /* ----------------------------------------------------------------------- */
+  --ease-signature: cubic-bezier(.16, 1, .3, 1);    /* the Darak "expo-out" — default reveal/hover */
+  --ease-nav:       cubic-bezier(.22, .61, .36, 1);  /* nav slide-in cluster */
+  --ease-overshoot: cubic-bezier(.34, 1.56, .64, 1); /* playful pop (use rarely) */
+  --ease-inout:     cubic-bezier(.76, 0, .24, 1);
+
+  --dur-fast:   0.25s;
+  --dur-base:   0.4s;
+  --dur-slow:   0.7s;
+  --dur-reveal: 1.1s;
+
+  /* ----------------------------------------------------------------------- */
+  /* 8 · Z-INDEX                                                             */
+  /* ----------------------------------------------------------------------- */
+  --z-base:     1;
+  --z-raised:   3;
+  --z-sticky:   40;
+  --z-nav:      900;
+  --z-overlay:  1000;
+  --z-cursor:   99990;
+}
+
+/* ===========================================================================
+   DARK SCOPE — wrap any deep-emerald section in `.on-dark`.
+   Semantic tokens flip; components inside need no per-element overrides.
+   ======================================================================== */
+.on-dark {
+  --color-bg:            var(--emerald-900);
+  --color-surface:       var(--emerald-800);
+  --color-surface-sunk:  var(--emerald-800);
+
+  --color-text:          var(--on-dark);
+  --color-text-soft:     var(--on-dark-soft);
+  --color-text-muted:    var(--on-dark-muted);
+  --color-border:        var(--on-dark-hairline);
+  --color-border-strong: rgba(var(--on-dark-rgb), 0.4);
+
+  --color-primary:       var(--on-dark);       /* on dark, the "solid" button is light */
+  --color-primary-hover: var(--emerald-300);
+  --color-on-primary:    var(--emerald-900);
+
+  --color-secondary:     var(--emerald-300);
+  --color-accent:        var(--emerald-300);
+
+  --color-link:          var(--emerald-300);
+  --color-link-hover:    var(--white);
+
+  --color-focus:         var(--emerald-300);
+}
+
+/* Honor reduced-motion globally — pair with JS guards for scroll animations. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.001s; --dur-base: 0.001s; --dur-slow: 0.001s; --dur-reveal: 0.001s;
+  }
+}

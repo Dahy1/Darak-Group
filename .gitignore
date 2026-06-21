@@ -20,7 +20,20 @@ _pagesdist/
 # reference site captures (not part of the Darak Group site)
 saveweb2zip-com-oliviaharperhomes-com/
 saveweb2zip-com-www-zeitmedia-vn/
+saveweb2zip-com-crest-estate-landing-webflow-io/
+saveweb2zip-com-fantasy-co/
 zeit-capture/
+
+# source material (brochures, raw image drops, project zips) — not part of the published site
+Only Valid Images/
+Crystal Alamein-*/
+marina/
+crystal_all.png
+
+# scratch / dev scripts
+shot_top.py
+shot_*.py
+_*.py
 
 # the 3D virtual tour is its own repo (github.com/Dahy1/Darak-Tour)
 3D Virtual Tour/
