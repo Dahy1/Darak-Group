@@ -347,7 +347,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     .zt-inline { display: none; }                /* mobile: collapsed by default */
     .zt-contact { transform: none; }             /* natural position next to burger */
     .zt-burger { opacity: 1; transform: none; pointer-events: auto; }
-    .zt-right { margin-left: 0; }                /* left-align the nav cluster beside the logo */
+    .zt-right { margin-left: auto; }             /* contact stays in the top bar, burger pinned to the far right */
     .zt-nav { gap: 16px; padding: 18px clamp(16px, 4vw, 28px); }
     .zt-overlay-inner { flex-direction: column; align-items: flex-start; justify-content: center; gap: 36px; }
   }
@@ -528,15 +528,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohx-container { max-width: none; margin: 0; padding: 0 clamp(20px, 3.2vw, 48px); }
 
   /* ---- 1. centered text block ---- */
-  .ohx-textblock { padding: clamp(90px, 16vh, 200px) 0 clamp(70px, 12vh, 150px); text-align: center; }
+  .ohx-textblock { padding: clamp(84px, 12vh, 140px) 0 clamp(72px, 10vh, 120px); text-align: center; }
   .ohx-label {
-    display: inline-block; font-size: 12px; letter-spacing: .26em;
-    text-transform: uppercase; color: #9a9a9a; margin-bottom: clamp(26px, 4.5vh, 52px);
+    display: inline-flex; align-items: center; gap: 11px; font-size: 15px; letter-spacing: .22em;
+    text-transform: uppercase; color: #407b78; font-weight: 600; margin-bottom: clamp(26px, 4.5vh, 52px);
+  }
+  .ohx-label::before {
+    content: ""; width: 9px; height: 9px; border-radius: 50%; background: #69c9c4; flex: 0 0 auto;
   }
   .ohx-display {
     font-family: "novantique-serif", Georgia, serif; font-weight: 400;
-    font-size: clamp(31px, 4.6vw, 72px); line-height: 1.1;
-    max-width: 20ch; margin: 0 auto; letter-spacing: .005em;
+    font-size: clamp(31px, 4.2vw, 58px); line-height: 1.12;
+    max-width: 42ch; margin: 0 auto; letter-spacing: .005em;
   }
   .ohx-display .ohx-word { display: inline-block; }
   .ohx-display .ohx-char { color: #407b78; transition: color .35s var(--zt-ease, ease), text-shadow .35s var(--zt-ease, ease); }
@@ -544,7 +547,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohx-display .ohx-char.is-edge { color: #69c9c4; text-shadow: 0 0 16px rgba(105,201,196,.8), 0 0 5px rgba(105,201,196,.55); }
 
   /* ---- 2. grid numbers ---- */
-  .ohx-grid { padding: clamp(60px, 10vh, 140px) 0 clamp(90px, 16vh, 200px); }
+  .ohx-grid { padding: clamp(72px, 10vh, 120px) 0; }
   .ohx-grid-cols {
     display: flex; gap: clamp(40px, 6vw, 110px); align-items: flex-start;
   }
@@ -561,13 +564,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     margin-left: -1px;                            /* collapse the shared vertical border */
   }
   .ohx-cell {
-    height: clamp(200px, 27vh, 300px);            /* uniform width + height for every cell */
-    padding: 26px clamp(20px, 1.8vw, 34px);
+    height: clamp(140px, 18vh, 196px);            /* uniform, compact cells */
+    padding: 20px clamp(18px, 1.6vw, 28px);
     display: flex; flex-direction: column; justify-content: space-between;
     border: 1px solid rgba(49, 49, 49, .18);   /* full border around each cell -> bordered boxes */
   }
   .ohx-cell + .ohx-cell { margin-top: -1px; }   /* collapse the shared edge within a column */
-  .ohx-cell--label-top .ohx-stat-label { order: -1; }  /* label pinned to the top edge */
+  /* every cell: number pinned to the top, label to the bottom */
+  .ohx-cell .ohx-num { order: 0; }
+  .ohx-cell .ohx-stat-label { order: 1; }
 
   .ohx-lead {
     font-size: clamp(20px, 2vw, 31px); line-height: 1.42; font-weight: 400; color: #1a1a1a; margin: 0;
@@ -596,7 +601,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   .ohx-num {
     display: block; font-family: "novantique-serif", Georgia, serif; font-weight: 400;
-    font-size: clamp(40px, 4.4vw, 66px); line-height: 1; color: var(--ohx-num-color, #407b78);
+    font-size: clamp(32px, 3.4vw, 50px); line-height: 1; color: var(--ohx-num-color, #407b78);
   }
   .ohx-stat-label {
     display: block; font-size: 11px; font-weight: 600; letter-spacing: .18em;
@@ -609,8 +614,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     .ohx-grid-text, .ohx-stats { flex: 1 1 100%; width: 100%; }
   }
   @media (max-width: 767px) {
-    .ohx-textblock { padding-top: clamp(120px, 22vh, 200px); }      /* more space under the hero */
+    .ohx-textblock { padding-top: clamp(120px, 22vh, 200px); padding-bottom: clamp(34px, 6vh, 60px); }
     .ohx-display { font-size: clamp(38px, 9vw, 54px); max-width: 16ch; }  /* larger on mobile */
+    .ohx-label { margin-bottom: clamp(14px, 2.6vh, 22px); }  /* tighter under the eyebrow */
   }
   @media (max-width: 600px) {
     /* uniform cells stay equal-sized on mobile too; parallax handles the offset */
@@ -650,7 +656,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </div>
         <div class="ohx-stats-col ohx-stats-col--b">
           <div class="ohx-cell ohx-cell--label-bottom"><span class="ohx-num">600</span><span class="ohx-stat-label">Clients served</span></div>
-          <div class="ohx-cell ohx-cell--label-top"><span class="ohx-num">3</span><span class="ohx-stat-label">Completed projects</span></div>
+          <div class="ohx-cell ohx-cell--label-top"><span class="ohx-num">8</span><span class="ohx-stat-label">Completed projects</span></div>
           <div class="ohx-cell ohx-cell--label-bottom"><span class="ohx-num">100%</span><span class="ohx-stat-label">Delivered on schedule</span></div>
         </div>
       </div>
@@ -912,8 +918,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohz-red { color: #407b78; }
   .ohz-exp-lede { font-size: clamp(15px, 1.15vw, 18px); line-height: 1.55; color: #707070;
     max-width: 46ch; margin: 20px auto 0; }
-  .ohz-exp-map { position: relative; margin: clamp(20px,4vh,46px) auto 0; }
-  .exp-map-svg { display: block; width: 100%; height: auto; }
+  /* container matches the SVG's aspect ratio so the %-positioned pins line up at every size */
+  .ohz-exp-map { position: relative; width: min(640px, 92vw); aspect-ratio: 1320 / 1213; margin: clamp(20px,4vh,46px) auto 0; }
+  .exp-map-svg { display: block; width: 100%; height: 100%; }
   .exp-pin { position: absolute; transform: translate(-50%, -50%); z-index: 6; }
   .exp-dot { position: relative; display: block; width: 13px; height: 13px; border-radius: 50%;
     background: #69c9c4; box-shadow: 0 0 0 6px rgba(105, 201, 196, .18); cursor: pointer;
@@ -922,6 +929,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     border: 1px solid rgba(105, 201, 196, .6); animation: expPulse 2.8s ease-out infinite; }
   .exp-pin:hover .exp-dot, .exp-pin:focus-within .exp-dot {
     transform: scale(1.18); box-shadow: 0 0 0 10px rgba(105, 201, 196, .22); }
+  /* head-office pin — deep emerald to set it apart from the aqua project pins */
+  .exp-pin--hq .exp-dot { background: #002d2b; box-shadow: 0 0 0 6px rgba(0, 45, 43, .16); }
+  .exp-pin--hq .exp-dot::after { border-color: rgba(0, 45, 43, .55); }
+  .exp-pin--hq:hover .exp-dot, .exp-pin--hq:focus-within .exp-dot { box-shadow: 0 0 0 10px rgba(0, 45, 43, .2); }
   .exp-tip { position: absolute; left: 50%; bottom: calc(100% + 15px); z-index: 20;
     transform: translateX(-50%) translateY(6px); background: #002d2b; color: #ffffff;
     padding: 12px 16px; border-radius: 9px; white-space: nowrap; opacity: 0; pointer-events: none;
@@ -998,8 +1009,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     .ohz-expansion { position: absolute; inset: 0; z-index: 1; padding: 0;
       display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .ohz-exp-head { position: relative; margin: 0 0 clamp(18px,3vh,40px); }
-    .ohz-exp-map { height: min(58vh, 620px); margin: 0; }
-    .exp-map-svg { height: 100%; width: auto; max-width: 92vw; }
+    .ohz-exp-map { width: min(64vh, 680px); height: auto; margin: 0; }
+    .exp-map-svg { width: 100%; height: 100%; max-width: none; }
   }
 
   /* ---------- static fallback: <1024px OR reduced motion ---------- */
@@ -1014,8 +1025,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     .ohz-expansion { position: absolute; inset: 0; z-index: 1; padding: 0;
       display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .ohz-exp-head { position: relative; margin: 0 0 clamp(14px,3vh,30px); }
-    .ohz-exp-map { height: min(52vh, 460px); margin: 0; max-width: 92vw; }
-    .exp-map-svg { height: 100%; width: auto; max-width: 90vw; }
+    .ohz-exp-map { width: min(440px, 88vw); height: auto; margin: 0; }
+    .exp-map-svg { width: 100%; height: 100%; max-width: none; }
     .ohz-card-wrap { min-height: 0; display: block; padding: clamp(50px,8vh,80px) 0; }
     .ohz-card { grid-template-columns: 1fr; height: auto; gap: 30px; }
     .ohz-stack { height: auto; aspect-ratio: 1 / 1; }   /* square media on mobile (shorter -> less scroll) */
@@ -1099,6 +1110,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <span class="exp-pin" style="left:47%;top:21%" tabindex="0" aria-label="Sheikh Zayed"><span class="exp-dot"></span><span class="exp-tip"><b>Sheikh Zayed</b><i>Coming Soon</i></span></span>
           <span class="exp-pin" style="left:38%;top:9%" tabindex="0" aria-label="Marina"><span class="exp-dot"></span><span class="exp-tip"><b>Marina</b><i>Marina Eye Residence &middot; Now Selling</i></span></span>
           <span class="exp-pin" style="left:30%;top:12%" tabindex="0" aria-label="New Alamein"><span class="exp-dot"></span><span class="exp-tip"><b>New Alamein</b><i>Crystal Alamein &middot; Now Selling</i></span></span>
+          <span class="exp-pin exp-pin--hq" style="left:45%;top:8%" tabindex="0" aria-label="Alexandria — head office"><span class="exp-dot"></span><span class="exp-tip"><b>Alexandria</b><i>Darak Group &middot; Head Office</i></span></span>
   </div>
       </div>
       <div class="ohz-scale-frame" data-ohz-scale>
@@ -1150,7 +1162,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		<section class="ohpr" id="ohProjects">
 <style>
   .ohpr{position:relative;background:#ffffff;color:#111111;z-index:3;overflow:hidden;
-    font-family:"Avenir Next LT Pro",'Helvetica Neue',Arial,sans-serif;padding:clamp(72px,12vh,150px) 0 clamp(72px,12vh,150px);}
+    font-family:"Avenir Next LT Pro",'Helvetica Neue',Arial,sans-serif;padding:clamp(72px,10vh,120px) 0;}
   .ohpr *{box-sizing:border-box;}
   .ohpr-wrap{width:100%;max-width:1560px;margin:0 auto;padding:0 clamp(22px,5vw,80px);}
 
@@ -1198,6 +1210,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     transition:--ohpr-fl .45s ease,--ohpr-fr .45s ease;}
   .ohpr-viewport.ohpr-fade-l{--ohpr-fl:34px;}
   .ohpr-viewport.ohpr-fade-r{--ohpr-fr:34px;}
+  /* full-bleed scroller: spans the whole viewport, but the first card lines up with the
+     container's left edge (and snaps/last card respect the same gutter) */
+  .ohpr:not(.ohpr--grid) .ohpr-viewport{
+    --ohpr-gutter:calc((100vw - min(1560px, 100vw))/2 + clamp(22px,5vw,80px));
+    width:100vw; margin-left:calc(50% - 50vw);
+    padding-left:var(--ohpr-gutter); padding-right:var(--ohpr-gutter);
+    scroll-padding-left:var(--ohpr-gutter);}
   .ohpr-track{display:flex;gap:clamp(18px,2vw,30px);width:max-content;}
   .ohpr-card{flex:0 0 auto;text-decoration:none;color:inherit;width:clamp(280px,38vw,430px);scroll-snap-align:start;}
   .ohpr-card.is-hidden{display:none;}
@@ -2072,7 +2091,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   @media (max-width: 767px)  {
     .ohs-caption { bottom: 120px !important; }
     .ohs-nav { display: flex !important; left: 5%; right: 5%; bottom: 28px !important; align-items: stretch; opacity: 1 !important; }
-    .ohs-nav-row { justify-content: center; }
+    .ohs-nav-row { justify-content: left; }
   }
   /* ===== END TEMP HIDE ===== */
 </style>
@@ -2471,7 +2490,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <section id="news" class="ohn">
 <style>
   .ohn { position: relative; z-index: 5; background: #ffffff; color: #1a1a1a;
-    padding: clamp(80px,12vh,200px) 0 clamp(48px,7vh,90px); overflow: hidden; }
+    padding: clamp(36px,5vh,64px) 0 clamp(72px,10vh,120px); overflow: hidden; }
   .ohn-wrap { padding: 0 clamp(20px,3.2vw,48px); }
   .ohn-title { display: flex; justify-content: space-between; gap: 24px; margin: 0 0 clamp(40px,6vh,80px);
     font-family: "novantique-serif", Georgia, serif; font-weight: 400; line-height: .88; letter-spacing: -.01em;
@@ -2480,7 +2499,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohn-carousel { position: relative; }
   .ohn-track { display: flex; gap: clamp(14px,1.4vw,26px); overflow-x: auto; scroll-snap-type: x mandatory;
     scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none;
-    cursor: grab; padding-bottom: 2px; }
+    cursor: grab; padding-bottom: 2px;
+    /* full-bleed scroller; first card aligns with the container edge */
+    width: 100vw; margin-left: calc(50% - 50vw);
+    padding-left: clamp(20px,3.2vw,48px); padding-right: clamp(20px,3.2vw,48px);
+    scroll-padding-left: clamp(20px,3.2vw,48px); }
   .ohn-track::-webkit-scrollbar { display: none; }
   .ohn-track.is-drag { cursor: grabbing; scroll-behavior: auto; scroll-snap-type: none; }
   /* narrow, partial, animated edge fades (toggled in JS so the ends never fade) */
@@ -2679,10 +2702,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 /* tagline — original size, centered (text-align scoped to the heading so columns stay left) */
 .elementor-738 .elementor-element-6773913{max-width:none !important;align-items:center !important;}
-.elementor-738 .elementor-element-3029788{align-self:center !important;margin-left:auto !important;margin-right:auto !important;}
+.elementor-738 .elementor-element-3029788{align-self:center !important;margin-left:auto !important;margin-right:auto !important;width:min(1240px,92vw) !important;}
 .elementor-738 .elementor-element-3029788 .elementor-heading-title{
   font-family:"novantique-serif",Georgia,serif !important;font-weight:400 !important;
-  color:#111111 !important;margin:0 auto;text-align:center !important;}
+  color:#111111 !important;margin:0 auto;text-align:center !important;max-width:min(1280px,94vw) !important;}
 .elementor-738 .elementor-element-3029788 .elementor-heading-title span{color:#407b78 !important;}
 
 /* divider */
@@ -2790,6 +2813,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 											<span class="elementor-icon-list-text">Journal</span>
 											</a>
 									</li>
+									<li class="elementor-icon-list-item">
+											<a href="/contact/">
+
+											<span class="elementor-icon-list-text">Contact</span>
+											</a>
+										</li>
 						</ul>
 						</div>
 				</div>
@@ -4158,7 +4187,8 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 })();
 </script>
 
-	</body>
+	<script src="/wp-content/uploads/contact-modal.js" defer></script>
+</body>
 </html>
 
 

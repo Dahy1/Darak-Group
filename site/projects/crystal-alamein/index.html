@@ -568,6 +568,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
   /* SPACES */
   .cpd-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,26px);}
+  /* keep the absolutely-positioned label anchored to the card even after .cpd-rev clears its transform */
+  .cpd-card{position:relative;}
   .cpd-card-media{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:6px;background:var(--bg2);}
   .cpd-card-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--ease);}
   .cpd-card:hover .cpd-card-media img{transform:scale(1.06);}
@@ -776,10 +778,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 /* tagline — original size, centered (text-align scoped to the heading so columns stay left) */
 .elementor-738 .elementor-element-6773913{max-width:none !important;align-items:center !important;}
-.elementor-738 .elementor-element-3029788{align-self:center !important;margin-left:auto !important;margin-right:auto !important;}
+.elementor-738 .elementor-element-3029788{align-self:center !important;margin-left:auto !important;margin-right:auto !important;width:min(1240px,92vw) !important;}
 .elementor-738 .elementor-element-3029788 .elementor-heading-title{
   font-family:"novantique-serif",Georgia,serif !important;font-weight:400 !important;
-  color:#111111 !important;margin:0 auto;text-align:center !important;}
+  color:#111111 !important;margin:0 auto;text-align:center !important;max-width:min(1280px,94vw) !important;}
 .elementor-738 .elementor-element-3029788 .elementor-heading-title span{color:#407b78 !important;}
 
 /* divider */
@@ -885,6 +887,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 											<span class="elementor-icon-list-text">Journal</span>
 											</a>
 									</li>
+									<li class="elementor-icon-list-item">
+											<a href="/contact/">
+
+											<span class="elementor-icon-list-text">Contact</span>
+											</a>
+										</li>
 						</ul>
 						</div>
 				</div>
@@ -1861,6 +1869,7 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   }
 })();
 </script>
+<script src="/wp-content/uploads/contact-modal.js" defer></script>
 </body>
 </html>
 

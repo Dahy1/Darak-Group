@@ -556,17 +556,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .fcr-sval h2{font-size:clamp(30px,3.8vw,60px);margin:14px 0 0;}
   .fcr-sval p{margin:clamp(20px,3vh,30px) 0 0;font-size:clamp(16px,1.3vw,20px);line-height:1.6;color:rgba(244,248,247,.78);max-width:42ch;}
 
-  /* PINNED-IMAGE break (image holds still while the frame scrolls over it — works on mobile too) */
-  .fcr-break{position:relative;height:clamp(760px,165vh,1500px);}
-  .fcr-break-inner{position:sticky;top:0;height:100vh;overflow:hidden;
+  /* FIXED-BACKGROUND break — image is fixed to the viewport, only the frame scrolls (matches the project page) */
+  .fcr-break{position:relative;height:clamp(440px,88vh,920px);
     background-image:url('/wp-content/uploads/valid/cv13.jpg');
-    background-size:cover;background-position:center;background-repeat:no-repeat;}
-  .fcr-break-inner::after{content:"";position:absolute;inset:0;background:rgba(0,31,29,.3);}
+    background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat;}
+  .fcr-break::after{content:"";position:absolute;inset:0;background:rgba(0,31,29,.3);}
 
   /* SCROLL-HIGHLIGHT statement */
   .fcr-hl{padding:clamp(80px,14vh,170px) 0 clamp(36px,5vh,64px);}
   .fcr-hl p{margin:18px 0 0;font-family:var(--serif);font-weight:400;text-transform:uppercase;
-    font-size:clamp(28px,4.6vw,76px);line-height:1.12;letter-spacing:-.01em;max-width:20ch;}
+    font-size:clamp(28px,4.6vw,76px);line-height:1.12;letter-spacing:-.01em;max-width:none;}
   .fcr-hl .ch{color:#407b78;transition:color .3s var(--ease),text-shadow .3s var(--ease);}
   .fcr-hl .ch.on{color:#002d2b;}
   .fcr-hl .ch.edge{color:#69c9c4;text-shadow:0 0 16px rgba(105,201,196,.8),0 0 5px rgba(105,201,196,.55);}
@@ -609,6 +608,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     /* mobile: image is NOT pinned, so the text scrolls below it (never over it) */
     .fcr-sticky-media{position:static;top:auto;height:54vw;max-height:60vh;margin-bottom:clamp(20px,4vh,36px);}
     .fcr-sval{min-height:auto;padding:clamp(34px,7vh,64px) 0;}
+    .fcr-break{height:58vh;background-attachment:scroll;}
     .fcr-role{grid-template-columns:1fr auto;gap:6px 18px;}
     .fcr-role-m{grid-column:1;}
     .fcr-cred{grid-template-columns:1fr;gap:8px;}
@@ -647,7 +647,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   </div></div></section>
 
   <!-- FIXED-BACKGROUND PARALLAX BREAK -->
-  <section class="fcr-break" aria-hidden="true"><div class="fcr-break-inner"></div></section>
+  <section class="fcr-break" aria-hidden="true"></section>
 
   <!-- SCROLL-HIGHLIGHT STATEMENT -->
   <section class="fcr-hl"><div class="fcr-wrap">
@@ -704,6 +704,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   if(hl){ hl.innerHTML = hl.textContent.replace(/\S/g, function(c){return '<span class="ch">'+c+'</span>';}); }
   var words = hl?hl.querySelectorAll('.ch'):[];
 
+  // background-attachment:fixed is ignored on mobile, so pan the break bg to keep the parallax
+  var breaks=document.querySelectorAll('.fcr-break');
+  var mobileMq=window.matchMedia('(max-width:900px)');
+
   if(reduce){ return; }
   function tick(){
     if(hl&&words.length){
@@ -712,6 +716,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       p=Math.max(0,Math.min(1,p));
       var lit=Math.round(p*words.length);
       for(var i=0;i<words.length;i++){ words[i].classList.toggle('on', i<lit); words[i].classList.toggle('edge', i===lit-1 && p>0 && p<1); }
+    }
+    if(mobileMq.matches){
+      var bvh=window.innerHeight;
+      breaks.forEach(function(b){
+        var br=b.getBoundingClientRect();
+        if(br.bottom<0||br.top>bvh) return;
+        var prog=(bvh - br.top)/(bvh + br.height);
+        b.style.backgroundPositionY=(12 + prog*76).toFixed(1)+'%';
+      });
     }
     requestAnimationFrame(tick);
   }
@@ -741,10 +754,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 /* tagline — original size, centered (text-align scoped to the heading so columns stay left) */
 .elementor-738 .elementor-element-6773913{max-width:none !important;align-items:center !important;}
-.elementor-738 .elementor-element-3029788{align-self:center !important;margin-left:auto !important;margin-right:auto !important;}
+.elementor-738 .elementor-element-3029788{align-self:center !important;margin-left:auto !important;margin-right:auto !important;width:min(1240px,92vw) !important;}
 .elementor-738 .elementor-element-3029788 .elementor-heading-title{
   font-family:"novantique-serif",Georgia,serif !important;font-weight:400 !important;
-  color:#111111 !important;margin:0 auto;text-align:center !important;}
+  color:#111111 !important;margin:0 auto;text-align:center !important;max-width:min(1280px,94vw) !important;}
 .elementor-738 .elementor-element-3029788 .elementor-heading-title span{color:#407b78 !important;}
 
 /* divider */
@@ -850,6 +863,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 											<span class="elementor-icon-list-text">Journal</span>
 											</a>
 									</li>
+									<li class="elementor-icon-list-item">
+											<a href="/contact/">
+
+											<span class="elementor-icon-list-text">Contact</span>
+											</a>
+										</li>
 						</ul>
 						</div>
 				</div>
@@ -1586,6 +1605,7 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
   }
 })();
 </script>
+<script src="/wp-content/uploads/contact-modal.js" defer></script>
 </body>
 </html>
 
