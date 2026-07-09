@@ -4,74 +4,51 @@ pages sharing one article template. Reuses the Vision page's full HTML shell
 (head / nav / footer / scripts) and swaps the <main> content."""
 import re, glob, shutil, pathlib
 
-U = "/wp-content/uploads/2026/02/"
+U = "/wp-content/uploads/linkedin/"
 
 ARTICLES = [
-    dict(slug="building-by-hand", cat="Craft", date="May 28, 2026", read="5 min read",
-         title="Why We Build by Hand",
-         cover=U+"4489-N-Michigan-Ave_1OAKStudios028-scaled.jpg",
-         excerpt="A single in-house team carries every development from groundbreaking to handover — and why that changes the result.",
-         dek="A home is only as good as the hands that make it. At Darak Group we keep construction in-house so design intent survives all the way to the last fixture.",
+    dict(slug="urban-zen-by-azur", cat="Hospitality", date="Jun 12, 2026", read="5 min read",
+         title="Urban Zen by Azur: A New Chapter in Hospitality",
+         cover=U+"blog-azur.jpg",
+         excerpt="Darak Group brings service and leisure into its communities with Urban Zen by Azur — extending its craft from architecture into the way a place is lived.",
+         dek="Great communities are not only built — they are hosted. With the launch of Urban Zen by Azur, Darak Group carries its standard beyond the building line and into the daily experience of living.",
          body=[
-            ("p", "Most developers in Egypt hand a project off a dozen times before it is finished. Drawings pass to a main contractor, who passes them to subcontractors, who interpret them on site with no one from the design team in the room. By the time a decision reaches the wall, the reasoning behind it is long gone."),
-            ("h2", "One team, one standard"),
-            ("p", "We work differently. The people who detail a junction are the people who build it. Structure, envelope, joinery and finish are delivered by a single in-house team held to one exacting standard — so nothing is value-engineered away when no one is looking."),
-            ("quote", "A home's worth is not measured by the day it is delivered, but by how it endures."),
-            ("p", "That continuity is slow by design. We deliver a limited number of homes each phase because craft does not scale the way a spreadsheet wants it to. What it buys is a residence that still reads as considered in ten years as it did on the day of handover."),
-            ("h2", "Where it shows"),
-            ("p", "It shows in the places you do not photograph: the way a stone return lines up with a reveal, the silence of a door that was hung twice until it was right, the services laid out as carefully as the kitchen. The details no one asks about are the ones that decide whether a home feels built or merely assembled."),
+            ("p", "For most of its history a developer's job ended at handover. The keys changed hands, and whatever happened next — the upkeep, the amenities, the sense of belonging — belonged to someone else. We came to see that as the wrong place to stop."),
+            ("p", "Urban Zen by Azur is our answer: a dedicated hospitality identity that takes responsibility for how a Darak community actually feels once people are living in it. It was introduced at a gathering that brought our partners and teams together around a single idea — that the experience of a place deserves the same care as its architecture."),
+            ("h2", "From developer to host"),
+            ("p", "Through our affiliated hospitality venture, Urban Zen by Azur shapes the parts of a development you cannot draw on a floor plan: the welcome at the gate, the rhythm of the beach club, the quiet competence of a team that keeps everything running. It is the difference between owning an address and being looked after at one."),
+            ("quote", "We do not just hand over a home — we host a way of life."),
+            ("h2", "Designed around the guest"),
+            ("p", "Amenities are planned as hospitality from the first sketch, not added once the towers are sold. Pools, lounges, dining and waterfront leisure are programmed and serviced to a consistent standard across our coastal communities, so a resident and a guest meet the same calm, considered Darak."),
+            ("p", "It is early, and we intend to grow it carefully. But the direction is set: the home is the beginning of the relationship with Darak, not the end of it."),
          ]),
-    dict(slug="designing-for-light", cat="Design", date="May 12, 2026", read="4 min read",
-         title="Designing for the Egyptian Sun",
-         cover=U+"112-West-Palm-Ave_1oakstudios_9.jpg",
-         excerpt="Orientation, shading and glass studied room by room — so every home stays cool and luminous from Cairo to the coast.",
-         dek="Light is the first material we work with. Long before a finish is chosen, we study how the Egyptian sun will move through every room across the year.",
+    dict(slug="crystal-alamein", cat="Projects", date="May 30, 2026", read="6 min read",
+         title="Crystal Alamein: Hospitality-Led Living on the New Alamein Coast",
+         cover=U+"li2-hero.jpg",
+         excerpt="On the Mediterranean at New Alamein, Crystal Alamein pairs coastal architecture with a hospitality-led way of living — designed, like all our work, to endure.",
+         dek="At New Alamein, the sea is the architecture. Crystal Alamein is composed around it — a coastal community where design, leisure and service are conceived as one.",
          body=[
-            ("p", "Egyptian light is generous and unforgiving in equal measure. Handled well, it makes a room feel alive; handled carelessly, it bleaches finishes, overheats glass and turns a living room into an oven by midday."),
-            ("h2", "Studied room by room"),
-            ("p", "We model orientation and shading space by space, not building by building. A morning room wants low eastern sun; a majlis wants none of the harsh afternoon glare. Deep reveals, mashrabiya-inspired screens and tuned glazing keep each home cool without drawing the curtains on its own view."),
-            ("quote", "We do not fight the climate. We compose with it."),
-            ("p", "The result is a home that changes character through the day rather than holding one fixed mood — bright and open at breakfast, quiet and shaded through the heat, warm at the edges as the desert sun drops."),
+            ("p", "New Alamein has become one of the most ambitious stretches of the Egyptian Mediterranean, and it asks a great deal of anything built there. The light is enormous, the season is generous, and the sea is a constant, beautiful, corrosive presence that every decision has to respect."),
+            ("h2", "Built outward from the water"),
+            ("p", "Crystal Alamein — delivered through our affiliated company Crystal Global — is designed from the shoreline back. Principal spaces open toward the sea; terraces and pool decks extend the living area into the view; services and structure are kept quiet and to the rear. The coast does the talking."),
+            ("quote", "On this coast, the view is the architecture — everything else gets out of its way."),
+            ("h2", "A place to be hosted"),
+            ("p", "What sets Crystal Alamein apart is that it is hospitality-led: leisure, dining and waterfront amenities are planned and serviced as part of the experience, not bolted on afterwards. It is a place to own, and equally a place to be looked after."),
+            ("p", "And because it is a Darak development, it is detailed for the long horizon — corrosion-grade where the salt reaches, finished to the same standard at the beach club as in the residences, made to feel this considered after a decade of sun and sea."),
          ]),
-    dict(slug="materials-that-endure", cat="Materials", date="Apr 30, 2026", read="6 min read",
-         title="Choosing Materials That Endure",
-         cover=U+"4489-N-Michigan-Ave_1OAKStudios031-scaled.jpg",
-         excerpt="From structural glass to hand-finished stone — how we select for Egypt's desert heat and coastal salt, not the day of delivery.",
-         dek="The most expensive material is the one you replace in five years. We choose for the long horizon, and detail so the good choices last.",
+    dict(slug="marina-eye-residence", cat="Projects", date="May 16, 2026", read="5 min read",
+         title="Marina Eye Residence: Life on the Lagoon",
+         cover=U+"li2-a2.jpg",
+         excerpt="At the Marina, Marina Eye Residence frames water from every angle — a calm, lagoon-front address built to the single Darak standard.",
+         dek="Some homes have a view of the water. Marina Eye Residence is arranged so the water is never out of sight — a residence composed entirely around the lagoon.",
          body=[
-            ("p", "Egyptian homes live a hard life: desert dust and heat inland, salt air and humidity on the North Coast. Materials that look flawless in a showroom can fail quietly within a few seasons. Selecting well means asking not how something looks on day one, but how it will weather a decade of it."),
-            ("h2", "What we look for"),
-            ("ul", ["Stone and metal that patina gracefully rather than corrode",
-                    "Glass and hardware rated for coastal, high-salt environments",
-                    "Finishes that shrug off dust, heat and strong sun",
-                    "Surfaces that can be maintained, not only replaced"]),
-            ("quote", "Durability is a design decision, made long before anything is installed."),
-            ("p", "Just as important as the material is the detail around it. A beautiful stone fails at its weakest joint; a fine timber splits where heat was allowed to build. We detail the transitions as carefully as we choose the surfaces, because endurance lives in the junctions."),
-         ]),
-    dict(slug="inside-a-waterfront-build", cat="Projects", date="Apr 15, 2026", read="7 min read",
-         title="Inside a North Coast Build: Almaza Bay",
-         cover=U+"1716-S.-Bayshore-Drive2-scaled.jpg",
-         excerpt="A look behind the scenes of one of our North Coast developments — from raw sand to beachfront chalet.",
-         dek="Building on the Mediterranean rewards patience and punishes shortcuts. Here is how one Almaza Bay development came together, from first survey to handover.",
-         body=[
-            ("p", "A North Coast site gives you everything — light, breeze, an endless horizon — and asks for everything in return. The sand shifts, the season is short, and the sea is a constant, corrosive presence every building must be made to live alongside."),
-            ("h2", "Starting from the water"),
-            ("p", "We designed this development outward from the lagoon. The principal rooms open fully to the beach and pool deck, sliding walls of glass retracting so the living space and terrace become one. Services and structure were kept to the rear, quiet and unseen."),
-            ("quote", "On the coast, the view is the architecture. Everything else gets out of its way."),
-            ("h2", "Detailed for the long term"),
-            ("p", "Every exposed fixing is corrosion-grade; the marina walk, decks and beach club are built to the same standard as the chalets. The development was not finished when the photographs were taken — it was finished when we were confident it would still feel this way after a decade of salt and sun."),
-         ]),
-    dict(slug="what-turnkey-should-mean", cat="Process", date="Mar 27, 2026", read="4 min read",
-         title="What “Turnkey” Should Really Mean",
-         cover=U+"Florida-Luxury-Real-Estate-Olvia-Harper1-scaled.jpg",
-         excerpt="The word gets used loosely across Egypt. For us it means a home that is genuinely finished — and a client who never had to manage the build.",
-         dek="Turnkey should mean more than a key in your hand. It should mean a home that is truly complete, delivered by a team that carried the weight so you did not have to.",
-         body=[
-            ("p", "“Turnkey” has become a marketing word across the Egyptian market. Too often it means the obvious things work and the rest is left for you to discover. We hold it to a higher bar: a home is not turnkey until it is genuinely, quietly finished."),
-            ("h2", "Carrying the weight"),
-            ("p", "From permits to the final clean, the build is never handed to the client to manage. One team owns the schedule, the trades and the standard — so the only decisions you make are the ones you want to make."),
-            ("quote", "You should arrive to a finished home, not a list of things still to chase."),
-            ("p", "When we hand over the keys, the home is complete to the last fixture and the last walkthrough. That is the standard our clients return to, trust, and recommend — and the only definition of turnkey we are willing to use."),
+            ("p", "The Marina is one of the North Coast's most established destinations, and waterfront land there is rare and unforgiving. Marina Eye Residence makes the most of it by treating the lagoon not as a backdrop but as the organising idea of the whole building."),
+            ("h2", "Framing the water"),
+            ("p", "Layouts are turned toward the lagoon so that the view reaches deep into each home. Living spaces open to terraces over the water; glazing is tuned to keep interiors cool and luminous without drawing the curtains on the very thing you came for."),
+            ("quote", "A home on the water should never make you choose between light and shade, or comfort and the view."),
+            ("h2", "The single standard"),
+            ("p", "Like everything we build, Marina Eye Residence is delivered to one exacting standard, by a team that carries the project from groundbreaking to handover. The finishes are chosen for coastal life, the details resolved where the sea is hardest on them, and the home handed over genuinely complete."),
+            ("p", "The result is a quiet, considered address where the lagoon is part of the architecture — a place to live by the water, the way the coast was meant to be lived.")
          ]),
 ]
 
@@ -101,7 +78,7 @@ LIST_STYLE = '''<style>
   .ohj-media{position:relative;overflow:hidden;background:#e9e9e7;border-radius:3px;}
   .ohj-featured .ohj-media{aspect-ratio:4/3;}
   .ohj-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    filter:grayscale(1) contrast(1.05);transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
+    filter:contrast(1.03);transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
   .ohj-link:hover .ohj-media img{transform:scale(1.04);}
   .ohj-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(17,17,17,.5);}
   .ohj-ftitle{margin:16px 0 0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1.04;
@@ -155,7 +132,7 @@ def listing_inner():
   <div class="ohj-wrap">
     <span class="ohj-eyebrow">The Journal</span>
     <h1 class="ohj-title">Notes on<br>building well</h1>
-    <p class="ohj-intro">Field notes on craft, design and the long view &mdash; from the team behind Olivia Harper Homes. Fewer, more considered pieces, the way we build.</p>
+    <p class="ohj-intro">Field notes on craft, design and the long view &mdash; from the team behind Darak Group. Fewer, more considered pieces, the way we build.</p>
 
     <a class="ohj-link ohj-featured" href="/blog/%(fslug)s/">
       <div class="ohj-media"><img src="%(fcover)s" alt="%(ftitle)s" loading="lazy"></div>
@@ -194,7 +171,7 @@ ART_STYLE = '''<style>
   .ohart-byline{margin:clamp(20px,2.4vw,28px) 0 0;font-size:13px;letter-spacing:.04em;color:rgba(17,17,17,.5);}
   .ohart-cover{margin:clamp(40px,6vh,72px) auto 0;}
   .ohart-cover .ohart-frame{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e9e9e7;border-radius:3px;}
-  .ohart-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);}
+  .ohart-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.03);}
   .ohart-body{margin:clamp(44px,6vh,76px) auto 0;}
   .ohart-body p{margin:0 0 1.35em;font-size:clamp(16px,1.15vw,19px);line-height:1.78;color:rgba(17,17,17,.82);}
   .ohart-body h2{margin:1.7em 0 .5em;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1.1;
@@ -222,7 +199,7 @@ ART_STYLE = '''<style>
   .ohart-mcard{text-decoration:none;color:inherit;display:block;}
   .ohart-mmedia{position:relative;aspect-ratio:3/2;overflow:hidden;background:#e9e9e7;border-radius:3px;}
   .ohart-mmedia img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    filter:grayscale(1) contrast(1.05);transition:transform 1s cubic-bezier(.16,1,.3,1);}
+    filter:contrast(1.03);transition:transform 1s cubic-bezier(.16,1,.3,1);}
   .ohart-mcard:hover .ohart-mmedia img{transform:scale(1.04);}
   .ohart-mtag{display:block;margin-top:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(17,17,17,.5);}
   .ohart-mtitle{margin:9px 0 0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1.1;
@@ -263,7 +240,7 @@ def article_inner(a, nxt, more):
     <div class="ohart-meta">%(cat)s &nbsp;&middot;&nbsp; %(date)s &nbsp;&middot;&nbsp; %(read)s</div>
     <h1 class="ohart-title">%(title)s</h1>
     <p class="ohart-dek">%(dek)s</p>
-    <div class="ohart-byline">Written by Olivia Harper Homes</div>
+    <div class="ohart-byline">Written by Darak Group</div>
   </div>
 
   <div class="ohart-cover ohart-wide"><div class="ohart-frame"><img src="%(cover)s" alt="%(title)s"></div></div>
@@ -271,7 +248,7 @@ def article_inner(a, nxt, more):
   <div class="ohart-body ohart-col">%(body)s</div>
 
   <div class="ohart-end">
-    <span class="ohart-end-by">Olivia Harper Homes &middot; The Journal</span>
+    <span class="ohart-end-by">Darak Group &middot; The Journal</span>
     <a class="ohart-next" href="/blog/%(nslug)s/">Next: %(ntitle)s %(arr)s</a>
   </div>
 
@@ -309,7 +286,7 @@ def main():
 
     # listing
     pathlib.Path('site/blog').mkdir(parents=True, exist_ok=True)
-    listing = settitle(assemble(listing_inner(), 'Journal - Olivia Harper Homes'), 'Journal - Olivia Harper Homes')
+    listing = settitle(assemble(listing_inner(), 'Journal - Darak Group'), 'Journal - Darak Group')
     pathlib.Path('site/blog/index.html').write_text(listing, encoding='utf-8')
 
     # articles
@@ -318,7 +295,7 @@ def main():
         nxt = ARTICLES[(i + 1) % n]
         more = [ARTICLES[(i + 1) % n], ARTICLES[(i + 2) % n], ARTICLES[(i + 3) % n]]
         inner = article_inner(a, nxt, more)
-        title = '%s - Journal - Olivia Harper Homes' % a["title"]
+        title = '%s - Journal - Darak Group' % a["title"]
         pathlib.Path('site/blog/%s' % a["slug"]).mkdir(parents=True, exist_ok=True)
         pathlib.Path('site/blog/%s/index.html' % a["slug"]).write_text(settitle(assemble(inner, title), title), encoding='utf-8')
 

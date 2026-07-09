@@ -14,12 +14,22 @@
   +   '-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);'
   +   "font-family:'Avenir Next LT Pro','Helvetica Neue',Arial,sans-serif;}"
   + '.dcm-overlay.is-open{opacity:1;visibility:visible;}'
-  + '.dcm-card{position:relative;width:min(490px,100%);max-height:92vh;overflow:auto;border-radius:24px;'
-  +   'padding:clamp(26px,4vw,42px);color:#06201e;isolation:isolate;'
+  + '.dcm-card{position:relative;width:min(490px,100%);max-height:92vh;overflow-y:auto;overflow-x:hidden;border-radius:24px;'
+  +   'padding:clamp(26px,4vw,42px);color:#06201e;isolation:isolate;overscroll-behavior:contain;'
   +   'background:linear-gradient(158deg,rgba(255,255,255,.86),rgba(228,246,244,.74));'
   +   '-webkit-backdrop-filter:blur(28px) saturate(1.4);backdrop-filter:blur(28px) saturate(1.4);'
   +   'border:1px solid rgba(105,201,196,.55);box-shadow:0 34px 90px rgba(0,31,29,.42);'
   +   'transform:translateY(20px) scale(.97);transition:transform .5s cubic-bezier(.16,1,.3,1);}'
+  /* custom themed scrollbar (no native browser bar, never horizontal) */
+  + '.dcm-card{scrollbar-width:thin;scrollbar-color:rgba(64,123,120,.55) transparent;}'
+  + '.dcm-card::-webkit-scrollbar{width:8px;height:0;}'
+  + '.dcm-card::-webkit-scrollbar-track{background:transparent;margin:14px 0;}'
+  + '.dcm-card::-webkit-scrollbar-thumb{border-radius:999px;background:linear-gradient(180deg,#69c9c4,#407b78);'
+  +   'border:2px solid transparent;background-clip:padding-box;}'
+  + '.dcm-card::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#5bbbb6,#356b68);background-clip:padding-box;}'
+  + '.dcm-card::-webkit-scrollbar-button{display:none;height:0;width:0;}'
+  /* desktop with room to spare: size to content, no scroll at all */
+  + '@media (min-width:600px) and (min-height:680px){.dcm-card{max-height:none;overflow:visible;}}'
   + '.dcm-overlay.is-open .dcm-card{transform:none;}'
   + '.dcm-card::before{content:"";position:absolute;z-index:-1;top:-40%;right:-30%;width:70%;height:70%;border-radius:50%;'
   +   'background:radial-gradient(circle,rgba(105,201,196,.5),transparent 70%);filter:blur(10px);pointer-events:none;}'
@@ -114,7 +124,7 @@
   +       '<button class="dcm-submit" type="submit">Send enquiry <span class="dcm-ico" aria-hidden="true">' + ARROW + '</span></button>'
   +     '</form>'
   +     '<div class="dcm-success"><div class="dcm-check"><svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M5 13l4 4 10-11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
-  +       '<h3>Thank you</h3><p>We&rsquo;ve received your details and will be in touch shortly.</p></div>'
+  +       '<h3>Almost there</h3><p>Your enquiry is ready in your email app &mdash; just press send and our team will be in touch shortly.</p></div>'
   +   '</div>'
   + '</div>';
 
@@ -221,6 +231,25 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (form.reportValidity && !form.reportValidity()) return;
+
+      // craft the enquiry into an email and hand it to the user's mail client
+      var get = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el && el.value ? el.value.trim() : ''; };
+      var name = get('name'), email = get('email'), phone = get('phone'), budget = get('budget'), project = get('project');
+      var subject = 'New enquiry from ' + (name || 'website visitor');
+      var lines = [
+        'Name: ' + (name || '—'),
+        'Email: ' + (email || '—'),
+        'Phone: ' + (phone || '—'),
+        'Budget: ' + (budget || '—'),
+        'Project of interest: ' + (project || '—'),
+        '',
+        'Sent from the Darak Group website.'
+      ];
+      var mailto = 'mailto:info@darak-group.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(lines.join('\r\n'));
+      window.location.href = mailto;
+
       form.style.display = 'none'; success.classList.add('on');
     });
 
@@ -233,6 +262,61 @@
         e.preventDefault(); open();
       }
     });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+/* Darak Group — floating WhatsApp contact button (site-wide).
+   On the homepage it stays hidden until the preloader animation finishes
+   (the 'oh:preloaded' event); everywhere else it reveals straight away. */
+(function () {
+  'use strict';
+  if (window.__dwaInit) return; window.__dwaInit = true;
+
+  var PHONE = '201099890811';            // +20 10 99890811
+  var HREF  = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent("Hello Darak Group, I'd like to know more about your projects.");
+
+  var css = ''
+  + '.dwa-btn{position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:99990;'
+  +   'width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;'
+  +   'background:linear-gradient(145deg,#25d366,#128c4b);color:#fff;text-decoration:none;'
+  +   'box-shadow:0 12px 30px rgba(18,140,75,.4),0 4px 10px rgba(0,0,0,.18);'
+  +   'opacity:0;visibility:hidden;transform:translateY(16px) scale(.85);'
+  +   'transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1),box-shadow .3s;}'
+  + '.dwa-btn.is-in{opacity:1;visibility:visible;transform:none;}'
+  + '.dwa-btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 18px 40px rgba(18,140,75,.5),0 6px 14px rgba(0,0,0,.2);}'
+  + '.dwa-btn svg{width:32px;height:32px;display:block;fill:#fff;color:#fff;}'
+  + '.dwa-btn svg path{fill:#fff;}'
+  + '.dwa-btn::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;z-index:-1;'
+  +   'animation:dwaPulse 2.6s ease-out infinite;}'
+  + '@keyframes dwaPulse{0%{transform:scale(1);opacity:.5;}70%{transform:scale(1.6);opacity:0;}100%{opacity:0;}}'
+  + '@media (prefers-reduced-motion:reduce){.dwa-btn,.dwa-btn::before{animation:none;transition:opacity .3s;}}';
+
+  var ICON = '<svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path fill="#fff" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.02ZM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 5.82 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.69 8.4-8.24 8.4Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>';
+
+  function init() {
+    var style = document.createElement('style'); style.id = 'dwa-style'; style.textContent = css;
+    document.head.appendChild(style);
+
+    var a = document.createElement('a');
+    a.className = 'dwa-btn'; a.href = HREF; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.setAttribute('aria-label', 'Chat with us on WhatsApp');
+    a.innerHTML = ICON;
+    document.body.appendChild(a);
+
+    function reveal() { requestAnimationFrame(function () { a.classList.add('is-in'); }); }
+
+    // Homepage: a preloader is present — wait for it to finish.
+    var hasPreloader = document.getElementById('ohPreloader') || document.body.classList.contains('oh-preloader-active');
+    if (hasPreloader) {
+      document.addEventListener('oh:preloaded', function () { setTimeout(reveal, 400); }, { once: true });
+      // safety net in case the event never fires
+      setTimeout(function () { if (!a.classList.contains('is-in')) reveal(); }, 9000);
+    } else {
+      setTimeout(reveal, 600);
+    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

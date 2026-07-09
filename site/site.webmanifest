@@ -1,0 +1,12 @@
+{
+  "name": "Darak Group",
+  "short_name": "Darak",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#001f1d",
+  "theme_color": "#001f1d",
+  "icons": [
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

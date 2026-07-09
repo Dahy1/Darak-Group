@@ -1,0 +1,362 @@
+[
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "52 m²",
+    "beds": "1 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 52
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "53 m²",
+    "beds": "1 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 53
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "55 m²",
+    "beds": "1 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 55
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "56 m²",
+    "beds": "1 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 56
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "57 m²",
+    "beds": "1 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 57
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "59 m²",
+    "beds": "1 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 59
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "60 m²",
+    "beds": "1 BR",
+    "floor": "2",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 60
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "62 m²",
+    "beds": "1 BR",
+    "floor": "2–6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 62
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "66 m²",
+    "beds": "1 BR",
+    "floor": "2",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 66
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "67 m²",
+    "beds": "1 BR",
+    "floor": "2–6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 67
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "70 m²",
+    "beds": "1 BR",
+    "floor": "2–6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 70
+  },
+  {
+    "cat": "Apartment",
+    "name": "One-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "71 m²",
+    "beds": "1 BR",
+    "floor": "2–6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 71
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "78 m²",
+    "beds": "2–3 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 78
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "80 m²",
+    "beds": "2–3 BR",
+    "floor": "Ground",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 80
+  },
+  {
+    "cat": "Apartment",
+    "name": "Two-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "84 m²",
+    "beds": "2 BR",
+    "floor": "2",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 84
+  },
+  {
+    "cat": "Apartment",
+    "name": "Two-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "88 m²",
+    "beds": "2 BR",
+    "floor": "4, 6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 88
+  },
+  {
+    "cat": "Apartment",
+    "name": "Two-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "90 m²",
+    "beds": "2 BR",
+    "floor": "4, 6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 90
+  },
+  {
+    "cat": "Apartment",
+    "name": "Two-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "92 m²",
+    "beds": "2 BR",
+    "floor": "2, 3, 5",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 92
+  },
+  {
+    "cat": "Apartment",
+    "name": "Two-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "94 m²",
+    "beds": "2 BR",
+    "floor": "2, 3, 5",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 94
+  },
+  {
+    "cat": "Apartment",
+    "name": "Two-Bedroom Residence",
+    "view": "Curved-balcony terrace",
+    "size": "97 m²",
+    "beds": "2 BR",
+    "floor": "3, 5",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 97
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "97 m²",
+    "beds": "2–3 BR",
+    "floor": "2",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 97
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "104 m²",
+    "beds": "2–3 BR",
+    "floor": "2",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 104
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "119 m²",
+    "beds": "2–3 BR",
+    "floor": "6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 119
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "120 m²",
+    "beds": "2–3 BR",
+    "floor": "4",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 120
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "123 m²",
+    "beds": "2–3 BR",
+    "floor": "3–5",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 123
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "125 m²",
+    "beds": "2–3 BR",
+    "floor": "3, 5, 6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 125
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "133 m²",
+    "beds": "2–3 BR",
+    "floor": "3–5",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 133
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "134 m²",
+    "beds": "2–3 BR",
+    "floor": "6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 134
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "137 m²",
+    "beds": "2–3 BR",
+    "floor": "3, 5, 6",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 137
+  },
+  {
+    "cat": "Apartment",
+    "name": "Corner Residence",
+    "view": "Curved-balcony terrace",
+    "size": "139 m²",
+    "beds": "2–3 BR",
+    "floor": "4",
+    "desc": "Open-plan residence with a curved balcony opening to the horizon.",
+    "smin": 139
+  },
+  {
+    "cat": "Retail",
+    "name": "Retail Shop 1",
+    "view": "Arrival plaza",
+    "size": "65 m²",
+    "beds": "Shop",
+    "floor": "Ground",
+    "desc": "Ground-floor waterfront retail unit fronting the arrival plaza.",
+    "smin": 65
+  },
+  {
+    "cat": "Retail",
+    "name": "Retail Shop 2",
+    "view": "Arrival plaza",
+    "size": "26 m²",
+    "beds": "Shop",
+    "floor": "Ground",
+    "desc": "Ground-floor waterfront retail unit fronting the arrival plaza.",
+    "smin": 26
+  },
+  {
+    "cat": "Retail",
+    "name": "Retail Shop 3",
+    "view": "Arrival plaza",
+    "size": "26 m²",
+    "beds": "Shop",
+    "floor": "Ground",
+    "desc": "Ground-floor waterfront retail unit fronting the arrival plaza.",
+    "smin": 26
+  },
+  {
+    "cat": "Retail",
+    "name": "Retail Shop 4",
+    "view": "Arrival plaza",
+    "size": "38 m²",
+    "beds": "Shop",
+    "floor": "Ground",
+    "desc": "Ground-floor waterfront retail unit fronting the arrival plaza.",
+    "smin": 38
+  },
+  {
+    "cat": "Retail",
+    "name": "Retail Shop 5",
+    "view": "Arrival plaza",
+    "size": "26 m²",
+    "beds": "Shop",
+    "floor": "Ground",
+    "desc": "Ground-floor waterfront retail unit fronting the arrival plaza.",
+    "smin": 26
+  },
+  {
+    "cat": "Cafeteria",
+    "name": "Seafront Cafeteria",
+    "view": "Beach promenade",
+    "size": "96 m²",
+    "beds": "F&B",
+    "floor": "Ground",
+    "desc": "Seafront cafeteria opening directly onto the promenade and beach.",
+    "smin": 96
+  }
+]

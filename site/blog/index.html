@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
 <head>
-<link rel="icon" href="data:,">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#001f1d">
+<link rel="manifest" href="/site.webmanifest">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -10,12 +14,12 @@
 <title>Journal - Darak Group</title>
 <meta name="description" content="Olvia Harper Homes Our Visión To develop a vertically integrated platform focused on the creation of ultra-luxury and single-family new development"/>
 <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
-<link rel="canonical" href="/blog/" />
+<link rel="canonical" href="https://darak-group.com/blog/" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Vision - Darak Group" />
 <meta property="og:description" content="Olvia Harper Homes Our Visión To develop a vertically integrated platform focused on the creation of ultra-luxury and single-family new development" />
-<meta property="og:url" content="/vision/" />
+<meta property="og:url" content="https://darak-group.com/vision/" />
 <meta property="og:site_name" content="Darak Group" />
 <meta property="og:updated_time" content="2026-02-19T20:12:27+00:00" />
 <meta property="article:published_time" content="2026-02-05T01:54:32+00:00" />
@@ -398,10 +402,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </div>
       </div>
       <div class="zt-socials">
-        <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
-        <a href="https://behance.net" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.linkedin.com/company/darak-group-eg/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/darak.group.eg" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@darak_group" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://youtube.com/@DarakGroup-eg" target="_blank" rel="noopener">YouTube</a>
       </div>
     </div>
   </div>
@@ -511,12 +515,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohj-eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:12px;letter-spacing:.22em;
     text-transform:uppercase;color:rgba(17,17,17,.5);}
   .ohj-eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:#111;}
-  /* bespoke header — split wordmark like the OUR NEWS heading, scaled like the Contact heading */
-  .ohj-title{margin:0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:.86;
-    letter-spacing:-.02em;font-size:clamp(54px,15vw,212px);display:flex;justify-content:space-between;
-    align-items:flex-start;gap:24px;}
-  .ohj-title span{display:block;}
-  .ohj-title span:last-child{text-align:right;}
+  .ohj-title{margin:16px 0 0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1;
+    letter-spacing:-.02em;font-size:clamp(46px,8vw,118px);}
   .ohj-intro{margin:clamp(22px,3vw,32px) 0 0;max-width:60ch;font-size:clamp(16px,1.3vw,20px);
     line-height:1.6;color:rgba(17,17,17,.62);}
 
@@ -526,7 +526,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .ohj-media{position:relative;overflow:hidden;background:#e9e9e7;border-radius:3px;}
   .ohj-featured .ohj-media{aspect-ratio:4/3;}
   .ohj-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    filter:contrast(1.05);transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
+    filter:contrast(1.03);transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
   .ohj-link:hover .ohj-media img{transform:scale(1.04);}
   .ohj-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(17,17,17,.5);}
   .ohj-ftitle{margin:16px 0 0;font-family:'Gallient',Georgia,serif;font-weight:400;line-height:1.04;
@@ -558,77 +558,38 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     .ohj-grid{grid-template-columns:1fr 1fr;}
   }
   @media (max-width:560px){ .ohj-grid{grid-template-columns:1fr;} }
-
-  /* ---- match OUR NEWS: image cards with text overlaid + gradient ---- */
-  .ohj-featured{position:relative;display:block;aspect-ratio:16/9;border-radius:6px;overflow:hidden;color:#f2f2f2;margin-top:clamp(46px,7vh,90px);}
-  .ohj-featured .ohj-media{position:absolute;inset:0;aspect-ratio:auto;border-radius:0;}
-  .ohj-featured .ohj-media img,.ohj-grid .ohj-media img{filter:none;}
-  .ohj-featured::after,.ohj-card::after{content:"";position:absolute;inset:0;z-index:1;
-    background:linear-gradient(to top,rgba(0,0,0,.86) 0%,rgba(0,0,0,.22) 46%,rgba(0,0,0,0) 72%);}
-  .ohj-fbody{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(26px,3vw,54px);max-width:none;}
-  .ohj-featured .ohj-tag{color:rgba(242,242,242,.82);}
-  .ohj-featured .ohj-ftitle{color:#f2f2f2;}
-  .ohj-featured .ohj-fexcerpt{color:rgba(242,242,242,.85);}
-  .ohj-featured .ohj-meta{color:rgba(242,242,242,.72);}
-  .ohj-featured .ohj-readmore{color:#f2f2f2;border-color:rgba(255,255,255,.45);}
-  .ohj-featured:hover .ohj-readmore{border-color:#fff;}
-  .ohj-divider{display:none;}
-  .ohj-grid{margin-top:clamp(30px,4vh,56px);}
-  .ohj-card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
-    aspect-ratio:3/4;border-radius:6px;overflow:hidden;color:#f2f2f2;padding:clamp(20px,2vw,30px);}
-  .ohj-grid .ohj-media{position:absolute;inset:0;aspect-ratio:auto;border-radius:0;}
-  .ohj-card > .ohj-tag,.ohj-card > .ohj-card-title,.ohj-card > .ohj-card-meta{position:relative;z-index:2;}
-  .ohj-card .ohj-tag{margin:0;color:rgba(242,242,242,.82);}
-  .ohj-card .ohj-card-title{margin:12px 0 0;color:#f2f2f2;font-size:clamp(22px,1.9vw,30px);}
-  .ohj-card .ohj-card-title span{background:none;padding:0;}
-  .ohj-card .ohj-card-excerpt{display:none;}
-  .ohj-card .ohj-card-meta{margin-top:10px;color:rgba(242,242,242,.72);}
-  @media (max-width:900px){ .ohj-featured{aspect-ratio:4/3;} }
 </style>
   <div class="ohj-wrap">
-    <h1 class="ohj-title"><span>The</span><span>Journal</span></h1>
+    <span class="ohj-eyebrow">The Journal</span>
+    <h1 class="ohj-title">Notes on<br>building well</h1>
     <p class="ohj-intro">Field notes on craft, design and the long view &mdash; from the team behind Darak Group. Fewer, more considered pieces, the way we build.</p>
 
-    <a class="ohj-link ohj-featured" href="/blog/building-by-hand/">
-      <div class="ohj-media"><img src="/wp-content/uploads/valid/cv27.jpg" alt="Why We Build by Hand" loading="lazy"></div>
+    <a class="ohj-link ohj-featured" href="/blog/urban-zen-by-azur/">
+      <div class="ohj-media"><img src="/wp-content/uploads/linkedin/blog-azur.jpg" alt="Urban Zen by Azur: A New Chapter in Hospitality" loading="lazy"></div>
       <div class="ohj-fbody">
-        <span class="ohj-tag">Featured &middot; Craft</span>
-        <h2 class="ohj-ftitle">Why We Build by Hand</h2>
-        <p class="ohj-fexcerpt">A single in-house team carries every development from groundbreaking to handover — and why that changes the result.</p>
-        <div class="ohj-meta">May 28, 2026 &middot; 5 min read</div>
+        <span class="ohj-tag">Featured &middot; Hospitality</span>
+        <h2 class="ohj-ftitle">Urban Zen by Azur: A New Chapter in Hospitality</h2>
+        <p class="ohj-fexcerpt">Darak Group brings service and leisure into its communities with Urban Zen by Azur — extending its craft from architecture into the way a place is lived.</p>
+        <div class="ohj-meta">Jun 12, 2026 &middot; 5 min read</div>
         <span class="ohj-readmore">Read article <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </div>
     </a>
 
     <div class="ohj-divider"></div>
     <div class="ohj-grid">
-        <a class="ohj-link ohj-card" href="/blog/designing-for-light/">
-          <div class="ohj-media"><img src="/wp-content/uploads/valid/cv23.jpg" alt="Designing for the Egyptian Sun" loading="lazy"></div>
-          <span class="ohj-tag">Design</span>
-          <h3 class="ohj-card-title"><span>Designing for the Egyptian Sun</span></h3>
-          <p class="ohj-card-excerpt">Orientation, shading and glass studied room by room — so every home stays cool and luminous from Cairo to the coast.</p>
-          <div class="ohj-card-meta">May 12, 2026 &middot; 4 min read</div>
-        </a>
-        <a class="ohj-link ohj-card" href="/blog/materials-that-endure/">
-          <div class="ohj-media"><img src="/wp-content/uploads/valid/cv23.jpg" alt="Choosing Materials That Endure" loading="lazy"></div>
-          <span class="ohj-tag">Materials</span>
-          <h3 class="ohj-card-title"><span>Choosing Materials That Endure</span></h3>
-          <p class="ohj-card-excerpt">From structural glass to hand-finished stone — how we select for Egypt's desert heat and coastal salt, not the day of delivery.</p>
-          <div class="ohj-card-meta">Apr 30, 2026 &middot; 6 min read</div>
-        </a>
-        <a class="ohj-link ohj-card" href="/blog/inside-a-waterfront-build/">
-          <div class="ohj-media"><img src="/wp-content/uploads/valid/cv13.jpg" alt="Inside a North Coast Build: Almaza Bay" loading="lazy"></div>
+        <a class="ohj-link ohj-card" href="/blog/crystal-alamein/">
+          <div class="ohj-media"><img src="/wp-content/uploads/linkedin/li2-hero.jpg" alt="Crystal Alamein: Hospitality-Led Living on the New Alamein Coast" loading="lazy"></div>
           <span class="ohj-tag">Projects</span>
-          <h3 class="ohj-card-title"><span>Inside a North Coast Build: Almaza Bay</span></h3>
-          <p class="ohj-card-excerpt">A look behind the scenes of one of our North Coast developments — from raw sand to beachfront chalet.</p>
-          <div class="ohj-card-meta">Apr 15, 2026 &middot; 7 min read</div>
+          <h3 class="ohj-card-title"><span>Crystal Alamein: Hospitality-Led Living on the New Alamein Coast</span></h3>
+          <p class="ohj-card-excerpt">On the Mediterranean at New Alamein, Crystal Alamein pairs coastal architecture with a hospitality-led way of living — designed, like all our work, to endure.</p>
+          <div class="ohj-card-meta">May 30, 2026 &middot; 6 min read</div>
         </a>
-        <a class="ohj-link ohj-card" href="/blog/what-turnkey-should-mean/">
-          <div class="ohj-media"><img src="/wp-content/uploads/valid/cv30.jpg" alt="What “Turnkey” Should Really Mean" loading="lazy"></div>
-          <span class="ohj-tag">Process</span>
-          <h3 class="ohj-card-title"><span>What “Turnkey” Should Really Mean</span></h3>
-          <p class="ohj-card-excerpt">The word gets used loosely across Egypt. For us it means a home that is genuinely finished — and a client who never had to manage the build.</p>
-          <div class="ohj-card-meta">Mar 27, 2026 &middot; 4 min read</div>
+        <a class="ohj-link ohj-card" href="/blog/marina-eye-residence/">
+          <div class="ohj-media"><img src="/wp-content/uploads/linkedin/li2-a2.jpg" alt="Marina Eye Residence: Life on the Lagoon" loading="lazy"></div>
+          <span class="ohj-tag">Projects</span>
+          <h3 class="ohj-card-title"><span>Marina Eye Residence: Life on the Lagoon</span></h3>
+          <p class="ohj-card-excerpt">At the Marina, Marina Eye Residence frames water from every angle — a calm, lagoon-front address built to the single Darak standard.</p>
+          <div class="ohj-card-meta">May 16, 2026 &middot; 5 min read</div>
         </a></div>
   </div>
 </section>
@@ -842,10 +803,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 				<div class="elementor-element elementor-element-51f4f58 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="51f4f58" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
 							<ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
-										<span class="elementor-icon-list-text">+20 2 2461 1234</span>
+										<a href="tel:+201022222639"><span class="elementor-icon-list-text">+20 10 22222639</span></a>
 									</li>
 								<li class="elementor-icon-list-item">
-										<span class="elementor-icon-list-text">Plot 24, North 90th Street, New Cairo, Cairo</span>
+										<a href="https://maps.google.com/?q=64+Fawzy+Moaz+St,+Smouha,+Alexandria" target="_blank" rel="noopener"><span class="elementor-icon-list-text">64 Fawzy Moaz St., Smouha, Alexandria</span></a>
+						</li>
+					<li class="elementor-icon-list-item">
+							<a href="mailto:info@darak-group.com"><span class="elementor-icon-list-text">info@darak-group.com</span></a>
 									</li>
 						</ul>
 						</div>
@@ -910,8 +874,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="uc_stylish_social_buttons" id="uc_social_icons_glare_effect_elementor_cb330f2"> 
     <!--uc_container_holder--> 
     <div class="uc_social-buttons">
-    	<a href="https://whatsapp.com" class="uc_social-button"   target='_blank'><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.06 24l1.68-6.13A11.8 11.8 0 0 1 .16 11.9C.16 5.4 5.46.1 11.96.1c3.16 0 6.12 1.23 8.35 3.46a11.74 11.74 0 0 1 3.46 8.35c0 6.5-5.3 11.8-11.81 11.8-1.97 0-3.9-.5-5.62-1.43L.06 24zm6.6-3.8c1.66.99 3.25 1.58 5.3 1.58 5.4 0 9.8-4.4 9.8-9.79 0-2.62-1.02-5.08-2.87-6.93a9.74 9.74 0 0 0-6.92-2.88c-5.41 0-9.8 4.4-9.8 9.8 0 1.85.52 3.65 1.5 5.2l-.99 3.6 3.7-.97zm11.07-5.05c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg></a>
-<a href="https://instagram.com" class="uc_social-button"   target='_blank'><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.5.01-4.74.07-.99.05-1.53.21-1.89.35-.47.18-.81.4-1.17.76-.36.36-.58.7-.76 1.17-.14.36-.3.9-.35 1.89-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05.99.21 1.53.35 1.89.18.47.4.81.76 1.17.36.36.7.58 1.17.76.36.14.9.3 1.89.35 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.99-.05 1.53-.21 1.89-.35.47-.18.81-.4 1.17-.76.36-.36.58-.7.76-1.17.14-.36.3-.9.35-1.89.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-.99-.21-1.53-.35-1.89a3.15 3.15 0 0 0-.76-1.17 3.15 3.15 0 0 0-1.17-.76c-.36-.14-.9-.3-1.89-.35-1.24-.06-1.59-.07-4.74-.07zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 1.62a3.68 3.68 0 1 0 0 7.36 3.68 3.68 0 0 0 0-7.36zm5.5-.9a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0z"/></svg></a>
+    	<a href="https://wa.me/201099890811" class="uc_social-button"   target='_blank'><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.06 24l1.68-6.13A11.8 11.8 0 0 1 .16 11.9C.16 5.4 5.46.1 11.96.1c3.16 0 6.12 1.23 8.35 3.46a11.74 11.74 0 0 1 3.46 8.35c0 6.5-5.3 11.8-11.81 11.8-1.97 0-3.9-.5-5.62-1.43L.06 24zm6.6-3.8c1.66.99 3.25 1.58 5.3 1.58 5.4 0 9.8-4.4 9.8-9.79 0-2.62-1.02-5.08-2.87-6.93a9.74 9.74 0 0 0-6.92-2.88c-5.41 0-9.8 4.4-9.8 9.8 0 1.85.52 3.65 1.5 5.2l-.99 3.6 3.7-.97zm11.07-5.05c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg></a>
+<a href="https://www.instagram.com/darak.group.eg" class="uc_social-button"   target='_blank'><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.5.01-4.74.07-.99.05-1.53.21-1.89.35-.47.18-.81.4-1.17.76-.36.36-.58.7-.76 1.17-.14.36-.3.9-.35 1.89-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05.99.21 1.53.35 1.89.18.47.4.81.76 1.17.36.36.7.58 1.17.76.36.14.9.3 1.89.35 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.99-.05 1.53-.21 1.89-.35.47-.18.81-.4 1.17-.76.36-.36.58-.7.76-1.17.14-.36.3-.9.35-1.89.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-.99-.21-1.53-.35-1.89a3.15 3.15 0 0 0-.76-1.17 3.15 3.15 0 0 0-1.17-.76c-.36-.14-.9-.3-1.89-.35-1.24-.06-1.59-.07-4.74-.07zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 1.62a3.68 3.68 0 1 0 0 7.36 3.68 3.68 0 0 0 0-7.36zm5.5-.9a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0z"/></svg></a>
 
     </div>
 </div>
