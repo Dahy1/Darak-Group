@@ -303,8 +303,8 @@ function paintRail(){const ci=ORDER.indexOf(current);
 function updateCaption(n){const d=NODES[n];capKick.textContent=d.group;capTitle.textContent=d.title;capSub.textContent=d.sub;}
 function showPoster(n){pKick.textContent=NODES[n].group;pTitle.textContent=NODES[n].title;poster.classList.add('on');poster.classList.toggle('barename',!!NODES[n].hero);}
 function hidePoster(){poster.classList.remove('on');}
-const POIS_ON_DESKTOP=false; /* desktop clips are a wider 16:9 crop; POI coords were authored for the 9:16 framing */
-function renderPOIs(n){poiWrap.innerHTML='';if(deskMode&&!POIS_ON_DESKTOP)return;const d=NODES[n];if(!d.pois)return;
+const SHOW_POIS=false; /* overlay pins hidden for Marina */
+function renderPOIs(n){poiWrap.innerHTML='';if(!SHOW_POIS)return;const d=NODES[n];if(!d.pois)return;
   const vw=innerWidth,vh=innerHeight,vidW=deskMode?1920:1080,vidH=deskMode?1080:1920,scale=Math.max(vw/vidW,vh/vidH);
   const fw=vidW*scale,fh=vidH*scale,ox=(vw-fw)/2,oy=(vh-fh)/2;
   d.pois.forEach(([label,px,py],k)=>{const el=document.createElement('div');
