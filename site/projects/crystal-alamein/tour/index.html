@@ -172,19 +172,6 @@
     #units{width:100vw;} .u-list{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:420px){ .u-list{grid-template-columns:1fr;} #hero h1{font-size:34px;} }
-
-  /* ---------- desktop = mobile-only notice ---------- */
-  #deskblock{position:fixed;inset:0;z-index:9999;display:none;flex-direction:column;align-items:center;justify-content:center;
-    gap:20px;text-align:center;padding:40px;color:#fff;
-    background:rgba(6,8,10,.5);-webkit-backdrop-filter:blur(26px) saturate(1.05);backdrop-filter:blur(26px) saturate(1.05);}
-  #deskblock .ph{width:74px;height:132px;border:2px solid var(--aqua);border-radius:15px;position:relative;background:rgba(79,176,198,.06);box-shadow:0 0 40px rgba(79,176,198,.35);}
-  #deskblock .ph::before{content:'';position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:26px;height:3px;border-radius:2px;background:var(--aqua);}
-  #deskblock .ph::after{content:'';position:absolute;left:50%;top:12px;transform:translateX(-50%);width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.4);}
-  #deskblock .kick{font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--aqua);}
-  #deskblock h2{font-weight:200;font-size:clamp(30px,3.6vw,50px);letter-spacing:.02em;}
-  #deskblock p{max-width:460px;color:rgba(255,255,255,.78);font-size:16px;line-height:1.65;font-weight:300;}
-  #deskblock .url{margin-top:8px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:11px 20px;}
-  @media(min-width:821px){ #deskblock{display:flex;} }
 </style>
 </head>
 <body>
@@ -245,15 +232,6 @@
 
   <button id="showui">Show UI</button>
 
-  <!-- desktop: tour is mobile-only -->
-  <div id="deskblock">
-    <div class="ph"></div>
-    <div class="kick">Crystal Alamein · Darak Group</div>
-    <h2>Best experienced on mobile</h2>
-    <p>This immersive tour is crafted for a phone in your hand. Open Crystal Alamein on your mobile device to step inside.</p>
-    <div class="url">Open on your phone to explore</div>
-  </div>
-
   <!-- units drawer -->
   <div id="units-backdrop"></div>
   <aside id="units" aria-label="Residences">
@@ -296,7 +274,14 @@ const ADJ={Hero1:['A1','Amenities1','Hero2'],Hero2:['A1','Amenities1','Hero1'],
   A1:['A2','A4','Amenities1','Hero1','Hero2'],A2:['A1','A3'],A3:['A2','A4'],A4:['A1','A3'],
   Amenities1:['A1','Amenities2','Hero1','Hero2'],Amenities2:['Amenities1']};
 const GROUP_FIRST={};ORDER.forEach(n=>{const g=NODES[n].group;if(!(g in GROUP_FIRST))GROUP_FIRST[g]=n;});
-const idle=n=>`clips/${n}_${n}.mp4`, trans=(a,b)=>`clips/${a}_${b}.mp4`;
+/* clip set: landscape viewports get the 16:9 desktop renders, portrait/phones the 9:16 set */
+const DESK=()=>matchMedia('(min-aspect-ratio:1/1)').matches;
+let deskMode=DESK();
+const cdir=()=>deskMode?'clips_desktop':'clips';
+const idle=n=>`${cdir()}/${n}_${n}.mp4`, trans=(a,b)=>`${cdir()}/${a}_${b}.mp4`;
+/* desktop has no separate idle clips — the rest pose of a node is a transition frame:
+   last frame of any *→n (held on arrival) or first frame of any n→* (frozen for boot/flip) */
+const firstNeighbor=n=>(ADJ[n]&&ADJ[n][0])||n;
 function bfs(from,to){if(from===to)return[from];const q=[[from]],seen=new Set([from]);
   while(q.length){const p=q.shift(),l=p[p.length-1];for(const nx of(ADJ[l]||[])){if(seen.has(nx))continue;const np=p.concat(nx);if(nx===to)return np;seen.add(nx);q.push(np);}}return null;}
 
@@ -322,9 +307,10 @@ function paintRail(){const ci=ORDER.indexOf(current);
 
 /* ---- overlays ---- */
 function updateCaption(n){const d=NODES[n];capKick.textContent=d.group;capTitle.textContent=d.title;capSub.textContent=d.sub;}
-function renderPOIs(n){poiWrap.innerHTML='';const d=NODES[n];if(!d.pois)return;
+const POIS_ON_DESKTOP=false; /* desktop clips are a wider 16:9 crop; POI coords were authored for the 9:16 framing */
+function renderPOIs(n){poiWrap.innerHTML='';if(deskMode&&!POIS_ON_DESKTOP)return;const d=NODES[n];if(!d.pois)return;
   /* object-fit:cover mapping — video is scaled to fill (max), cropped, centered */
-  const vw=innerWidth,vh=innerHeight,vidW=1080,vidH=1920,scale=Math.max(vw/vidW,vh/vidH);
+  const vw=innerWidth,vh=innerHeight,vidW=deskMode?1280:1080,vidH=deskMode?720:1920,scale=Math.max(vw/vidW,vh/vidH);
   const fw=vidW*scale,fh=vidH*scale,ox=(vw-fw)/2,oy=(vh-fh)/2;
   d.pois.forEach(([label,px,py],k)=>{const el=document.createElement('div');
     el.className='poi '+(px>58?'l':'r');el.style.left=(ox+fw*px/100)+'px';el.style.top=(oy+fh*py/100)+'px';el.style.animationDelay=(0.12*k)+'s';
@@ -337,13 +323,18 @@ function arrive(n){updateCaption(n);compassImg.style.transform='rotate('+NODES[n
 function playClip(el,src,loop){return new Promise(res=>{el.loop=loop;el.oncanplay=()=>{el.oncanplay=null;res();};el.src=src;el.load();const p=el.play();if(p&&p.catch)p.catch(()=>{});});}
 const whenEnded=el=>new Promise(res=>{el.onended=()=>{el.onended=null;res();};});
 async function playHop(a,b){await playClip(back,trans(a,b),false);back.classList.add('show');front.classList.remove('show');await whenEnded(back);[front,back]=[back,front];}
-async function playIdle(n){await playClip(back,idle(n),true);back.classList.add('show');front.classList.remove('show');[front,back]=[back,front];}
+async function playIdle(n,arrived){
+  if(deskMode){ /* desktop idle = a frozen transition frame, no dedicated clip */
+    if(arrived){try{front.pause();}catch(e){}return;} /* hold the transition we just played on its last frame */
+    await playClip(back,trans(n,firstNeighbor(n)),false); /* cold (boot/flip): freeze an outgoing transition at frame 0 = n's rest */
+    back.classList.add('show');front.classList.remove('show');[front,back]=[back,front];
+    try{front.pause();front.currentTime=0;}catch(e){}return;}
+  await playClip(back,idle(n),true);back.classList.add('show');front.classList.remove('show');[front,back]=[back,front];}
 async function goTo(target){if(busy||target===current)return;const path=bfs(current,target);if(!path||path.length<2)return;
   busy=true;spin.classList.add('show');caption.classList.remove('gone');hero.classList.add('gone');poiWrap.innerHTML='';
   for(let i=1;i<path.length;i++){updateCaption(path[i]);await playHop(path[i-1],path[i]);spin.classList.remove('show');}
-  current=target;await playIdle(target);busy=false;arrive(target);}
-const blocked=()=>matchMedia('(min-width:821px)').matches; /* tour is mobile-only */
-function step(d){if(busy||drawerOpen||blocked())return;const i=ORDER.indexOf(current),j=Math.max(0,Math.min(ORDER.length-1,i+d));if(j!==i)goTo(ORDER[j]);}
+  current=target;await playIdle(target,true);busy=false;arrive(target);}
+function step(d){if(busy||drawerOpen)return;const i=ORDER.indexOf(current),j=Math.max(0,Math.min(ORDER.length-1,i+d));if(j!==i)goTo(ORDER[j]);}
 
 /* ---- input ---- */
 let accum=0,lock=false;
@@ -353,7 +344,9 @@ let ty=null;addEventListener('touchstart',e=>{if(drawerOpen)return;ty=e.touches[
 addEventListener('touchend',e=>{if(ty==null||drawerOpen)return;const dy=ty-e.changedTouches[0].clientY;ty=null;if(Math.abs(dy)>45)step(dy>0?1:-1);},{passive:true});
 addEventListener('keydown',e=>{if(drawerOpen){if(e.key==='Escape')closeUnits();return;}
   if(['ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();step(1);}else if(['ArrowUp','PageUp'].includes(e.key)){e.preventDefault();step(-1);}});
-addEventListener('resize',()=>renderPOIs(current));
+/* when the viewport flips orientation, swap clip sets and reload the current view */
+function syncMode(){const d=DESK();if(d!==deskMode){deskMode=d;if(!busy&&!drawerOpen)playIdle(current);}renderPOIs(current);}
+addEventListener('resize',syncMode);
 $('#arw-prev').onclick=()=>step(-1);$('#arw-next').onclick=()=>step(1);
 $('#begin').onclick=()=>{ensurePlay();step(1);};
 $('#disc-x').onclick=()=>$('#disc').classList.add('gone');
@@ -392,7 +385,10 @@ fetch('units.json').then(r=>r.json()).then(d=>{UNITS=d;$('#units-n').textContent
 
 /* ---- boot ---- */
 function ensurePlay(){[front,back].forEach(v=>{const p=v.play&&v.play();if(p&&p.catch)p.catch(()=>{});});}
-(async function(){await playClip(front,idle('Hero1'),true);front.classList.add('show');arrive('Hero1');})();
+(async function(){
+  if(deskMode){await playClip(front,trans('Hero1',firstNeighbor('Hero1')),false);front.classList.add('show');try{front.pause();front.currentTime=0;}catch(e){}}
+  else{await playClip(front,idle('Hero1'),true);front.classList.add('show');}
+  arrive('Hero1');})();
 ['pointerdown','keydown','wheel','touchstart'].forEach(ev=>addEventListener(ev,ensurePlay,{once:true,passive:true}));
 </script>
 </body>
